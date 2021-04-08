@@ -1,0 +1,105 @@
+
+/* Class = "UIButton"; normalTitle = "Forget Password ?"; ObjectID = "0ub-lY-Tb9"; */
+"0ub-lY-Tb9.normalTitle" = "Forget Password ?";
+
+/* Class = "UITextField"; placeholder = "First Name"; ObjectID = "2Wn-Tb-7B2"; */
+"2Wn-Tb-7B2.placeholder" = "First Name";
+
+/* Class = "UILabel"; text = "this is my first post text "; ObjectID = "36K-sF-ubp"; */
+"36K-sF-ubp.text" = "this is my first post text ";
+
+/* Class = "UIButton"; normalTitle = "Login here."; ObjectID = "7Hx-rH-bZg"; */
+"7Hx-rH-bZg.normalTitle" = "Login here.";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "7T0-Dk-J4d"; */
+"7T0-Dk-J4d.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "University"; ObjectID = "9EQ-pG-TAO"; */
+"9EQ-pG-TAO.placeholder" = "University";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "F9s-55-cgk"; */
+"F9s-55-cgk.placeholder" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Add new Card"; ObjectID = "HSK-ko-CdY"; */
+"HSK-ko-CdY.text" = "Add new Card";
+
+/* Class = "UIButton"; normalTitle = "sign up"; ObjectID = "HXR-Aa-SlR"; */
+"HXR-Aa-SlR.normalTitle" = "sign up";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "J2p-Ui-7km"; */
+"J2p-Ui-7km.title" = "Item";
+
+/* Class = "UILabel"; text = "Agree the Terms and Conditions."; ObjectID = "LPV-J1-fsX"; */
+"LPV-J1-fsX.text" = "Agree the Terms and Conditions.";
+
+/* Class = "UIViewController"; title = "Profile"; ObjectID = "MzX-IF-MuQ"; */
+"MzX-IF-MuQ.title" = "Profile";
+
+/* Class = "UIButton"; normalTitle = "sign in"; ObjectID = "Q7C-2t-pvw"; */
+"Q7C-2t-pvw.normalTitle" = "sign in";
+
+/* Class = "UILabel"; text = "Show Password"; ObjectID = "UwH-oO-VEe"; */
+"UwH-oO-VEe.text" = "Show Password";
+
+/* Class = "UILabel"; text = " Already have an account?"; ObjectID = "Wgb-bR-RTV"; */
+"Wgb-bR-RTV.text" = " Already have an account?";
+
+/* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ZVj-aG-fDC"; */
+"ZVj-aG-fDC.placeholder" = "Email address";
+
+/* Class = "UITextField"; placeholder = "Gender"; ObjectID = "b9o-t2-jfI"; */
+"b9o-t2-jfI.placeholder" = "Gender";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "enY-Vv-rDp"; */
+"enY-Vv-rDp.title" = "Item";
+
+/* Class = "UILabel"; text = "3 m"; ObjectID = "epv-qR-H0Y"; */
+"epv-qR-H0Y.text" = "3 m";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fB5-XS-crX"; */
+"fB5-XS-crX.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "gc4-P9-7Fp"; */
+"gc4-P9-7Fp.placeholder" = "Mobile Number";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "hgz-FV-iHO"; */
+"hgz-FV-iHO.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Last Name"; ObjectID = "j0T-4y-RcF"; */
+"j0T-4y-RcF.placeholder" = "Last Name";
+
+/* Class = "UIViewController"; title = "All Cards"; ObjectID = "lwj-fQ-whe"; */
+"lwj-fQ-whe.title" = "All Cards";
+
+/* Class = "UIButton"; normalTitle = "Don't have an account ?"; ObjectID = "nqG-Vp-HlV"; */
+"nqG-Vp-HlV.normalTitle" = "Don't have an account ?";
+
+/* Class = "UILabel"; text = "Mohamed Hammam"; ObjectID = "oGp-Ix-oOp"; */
+"oGp-Ix-oOp.text" = "Mohamed Hammam";
+
+/* Class = "UILabel"; text = "Don't Worry !"; ObjectID = "peo-mF-ydB"; */
+"peo-mF-ydB.text" = "Don't Worry !";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "qrb-fv-JNO"; */
+"qrb-fv-JNO.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "rBJ-5n-fSU"; */
+"rBJ-5n-fSU.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Photo"; ObjectID = "s5F-Af-epA"; */
+"s5F-Af-epA.text" = "Photo";
+
+/* Class = "UILabel"; text = "Status"; ObjectID = "shA-iP-eeW"; */
+"shA-iP-eeW.text" = "Status";
+
+/* Class = "UIViewController"; title = "All People"; ObjectID = "sid-QJ-9bX"; */
+"sid-QJ-9bX.title" = "All People";
+
+/* Class = "UIViewController"; title = "Setting"; ObjectID = "tt4-2o-utP"; */
+"tt4-2o-utP.title" = "Setting";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "wEi-EK-dnb"; */
+"wEi-EK-dnb.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "z1i-pE-ik5"; */
+"z1i-pE-ik5.text" = "Label";
