@@ -20,6 +20,17 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Give Permision For Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Give Permission For Library</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SEGOEUIB.TTF</string>
+		<string>SEGOEUI.TTF</string>
+		<string>segoeuii.ttf</string>
+		<string>segoeuiz.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -42,7 +53,7 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -61,13 +72,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SEGOEUIB.TTF</string>
-		<string>SEGOEUI.TTF</string>
-		<string>segoeuii.ttf</string>
-		<string>segoeuiz.ttf</string>
 	</array>
 </dict>
 </plist>

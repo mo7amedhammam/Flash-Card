@@ -39,6 +39,8 @@ class AllPeopleController: UIViewController, UITableViewDelegate, UITableViewDat
         tableSetup()
         registerCells()
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "All People"
+
     }
 
     

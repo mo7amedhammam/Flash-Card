@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -15,16 +15,45 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sg7-98-Dt2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ME" translatesAutoresizingMaskIntoConstraints="NO" id="ed5-VU-aOw">
+                                        <rect key="frame" x="0.0" y="328" width="414" height="252"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="252" id="K26-cj-gem"/>
+                                            <constraint firstAttribute="width" constant="414" id="ggx-Eh-DxF"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ed5-VU-aOw" firstAttribute="centerY" secondItem="sg7-98-Dt2" secondAttribute="centerY" constant="6" id="YqD-Ho-8f6"/>
+                                    <constraint firstItem="ed5-VU-aOw" firstAttribute="centerX" secondItem="sg7-98-Dt2" secondAttribute="centerX" id="jwb-np-8d5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1647058824" green="0.29411764709999999" blue="0.48627450979999998" alpha="0.65932267550000001" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="sg7-98-Dt2" secondAttribute="bottom" id="5UE-kP-kFK"/>
+                            <constraint firstItem="sg7-98-Dt2" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="YGj-AY-ChN"/>
+                            <constraint firstItem="sg7-98-Dt2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f5Y-oe-xN3"/>
+                            <constraint firstItem="sg7-98-Dt2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hBz-bE-hiB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="splashImage" destination="ed5-VU-aOw" id="HSy-eT-zWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="186" y="135"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ME" width="965" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

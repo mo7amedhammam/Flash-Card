@@ -18,8 +18,8 @@ class ResetPassword: UIViewController {
     }
     
     @IBAction func BackBTn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-//        self.navigationController?.navigationBar.popItem(animated: true)
+        self.navigationController?.popViewController(animated: true)
+
         
     }
     

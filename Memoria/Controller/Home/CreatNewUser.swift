@@ -59,5 +59,9 @@ class CreatNewUser: UIViewController {
     }
     
     
+    @IBAction func Back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }
