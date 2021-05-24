@@ -12,11 +12,11 @@ import AVFoundation
 @IBDesignable class CardView: UIView {
 
         
-    var CornerRadius : CGFloat = 5
-    var ofsetWidth : CGFloat = 5
-    var ofsethHight : CGFloat = 5
-    var ofsethShadowOpacity : Float = 5
-    var mycolour = UIColor.systemGray4
+    var CornerRadius : CGFloat = 12
+    var ofsetWidth : CGFloat = 0
+    var ofsethHight : CGFloat = 0
+    var ofsethShadowOpacity : Float = 0.6
+    var mycolour = UIColor.black
 
     override func layoutSubviews() {
         layer.cornerRadius = self.CornerRadius

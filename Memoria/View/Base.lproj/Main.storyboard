@@ -1034,13 +1034,24 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN4-u4-aSc">
+                                                                    <rect key="frame" x="8" y="94" width="358" height="57"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <connections>
+                                                                        <action selector="gotoNewCardBtnPressed:" destination="XXs-mt-Apr" eventType="touchUpInside" id="CXy-8o-YJe"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="sLX-gn-BdZ" firstAttribute="top" secondItem="D0n-ls-rDc" secondAttribute="top" constant="10" id="0FC-yc-B7a"/>
+                                                                <constraint firstItem="SN4-u4-aSc" firstAttribute="top" secondItem="8xS-EF-IHB" secondAttribute="top" constant="-5" id="2BY-13-ppK"/>
                                                                 <constraint firstItem="sLX-gn-BdZ" firstAttribute="leading" secondItem="D0n-ls-rDc" secondAttribute="leading" constant="15" id="2Qb-gz-Z7S"/>
+                                                                <constraint firstItem="SN4-u4-aSc" firstAttribute="trailing" secondItem="8xS-EF-IHB" secondAttribute="trailing" constant="2" id="KKc-zU-H1S"/>
                                                                 <constraint firstAttribute="trailing" secondItem="sLX-gn-BdZ" secondAttribute="trailing" constant="10" id="NMU-TT-g8C"/>
+                                                                <constraint firstItem="SN4-u4-aSc" firstAttribute="bottom" secondItem="IGx-HO-M33" secondAttribute="bottom" id="cS1-C0-Lcq"/>
                                                                 <constraint firstAttribute="bottom" secondItem="sLX-gn-BdZ" secondAttribute="bottom" id="eqf-F4-OXN"/>
+                                                                <constraint firstItem="SN4-u4-aSc" firstAttribute="leading" secondItem="8xS-EF-IHB" secondAttribute="leading" constant="-7" id="p7r-xF-Ed9"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

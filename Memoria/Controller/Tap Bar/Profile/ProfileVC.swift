@@ -42,8 +42,6 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         
     }
-    
-    
-    
-
 }
+
+

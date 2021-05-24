@@ -19,7 +19,7 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCardsTVCell0") as! AllCardsTVCell
             setRoundedView(roundedView: cell.headerImage)
             //            setCardView(view: cell.StatusorImageV)
-            
+            cell.delegate = self
             return cell
         }else{
             
@@ -71,5 +71,17 @@ func setCardView(view : UIView){
     view.layer.cornerRadius = 1;
     view.layer.shadowRadius = 1;
     view.layer.shadowOpacity = 1;
+    
+}
+
+extension AllCardsVC:tableviewCellDelegate{
+    func creatNewCard(with title: String) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "CreatNewCardVC") as! CreatNewCardVC
+        
+        //                vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+    }
+    
     
 }

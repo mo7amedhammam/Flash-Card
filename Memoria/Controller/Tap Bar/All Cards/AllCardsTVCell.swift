@@ -38,22 +38,8 @@ class AllCardsTVCell: UITableViewCell {
 //        cellImage.layer.cornerRadius = 25
         
 //        StatusorImageV.addTapGesture(tapNumber: 1, target: self, action: #selector(move))
-        
-        
-        
     }
     
-    
-//    @objc func move()  {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let vc = storyboard.instantiateViewController(withIdentifier: "CreatNewCardVC") as! CreatNewCardVC
-//
-////                vc.modalPresentationStyle = .fullScreen
-//                self.present(vc, animated: true, completion: nil)
-//
-//    }
-//
-
     
     @IBAction func BuMoreOptions(_ sender: Any) {
         
@@ -109,6 +95,9 @@ class AllCardsTVCell: UITableViewCell {
             PostImage.image = UIImage(named: "ME")
             isFlipped = false
         }
+        
+        
+    
     }
 
     
@@ -121,7 +110,22 @@ class AllCardsTVCell: UITableViewCell {
         
 //        cellMainVC.dropShadow()
 //        cellMainVC.dropShadow(color: .red, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
-
-        
     }
+
+
+    weak var delegate:tableviewCellDelegate?
+    private var title:String = ""
+    
+//
+//    @objc func move()  {
+//        delegate?.creatNewCard(with: title)
+//    }
+    @IBAction func gotoNewCardBtnPressed(_ sender: Any) {
+        delegate?.creatNewCard(with: title)
+    }
+    
+}
+
+protocol tableviewCellDelegate:AnyObject {
+    func creatNewCard(with title:String)
 }
