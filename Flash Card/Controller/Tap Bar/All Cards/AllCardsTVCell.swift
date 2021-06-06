@@ -36,45 +36,45 @@ class AllCardsTVCell: UITableViewCell {
         // Initialization code
 //        headerImage.layer.cornerRadius = 50
 //        cellImage.layer.cornerRadius = 25
-        
 //        StatusorImageV.addTapGesture(tapNumber: 1, target: self, action: #selector(move))
+
     }
     
     
-    @IBAction func BuMoreOptions(_ sender: Any) {
-        
-    }
+   
     
     
     var clicked = 0
     var clicked1 = 0
+    var stared : Bool!
 
+    
+
+    @IBAction func BuStar(_ sender: Any) {
+//        delegate?.SelectFavouriteCategory(with: title1)
+
+        if clicked1 != 1 {
+                stared = true
+                clicked1 = 1
+            didStar()
+            stared = true
+                StarBuOutlet.isSelected = true
+            }else{
+                StarBuOutlet.isSelected = false
+                clicked1 = 0
+            }
+        }
+    
     @IBAction func BuExclaim(_ sender: Any) {
-        
-
-                if clicked == 0 {
+            if clicked == 0 {
                     clicked = 1
                     ExclaimBuOutlet.isSelected = true
                 }else{
                     ExclaimBuOutlet.isSelected = false
                     clicked = 0
-
                 }
     }
     
-    @IBAction func BuStar(_ sender: Any) {
-        delegate?.SelectFavouriteCategory(with: title1)
-            if clicked1 == 0 {
-                clicked1 = 1
-                StarBuOutlet.isSelected = true
-//                delegate?.SelectFavouriteCategory(with: title)
-            }else{
-                StarBuOutlet.isSelected = false
-                clicked1 = 0
-
-            }
-            
-        }
     
     //4
     @IBOutlet weak var FrontView: UIView!
@@ -117,26 +117,41 @@ class AllCardsTVCell: UITableViewCell {
     }
 
 
+    
+    
+    
+    
     weak var delegate:tableviewCellDelegate?
     private var title:String = ""
     private var title1:String = ""
+    private var title2:String = ""
 
 //
-//    @objc func move()  {
-//        delegate?.creatNewCard(with: title)
-//    }
+    private var delete:String = ""
+    func deletePost()  {
+        delegate?.creatNewCard(with: delete)
+    }
     
     @IBAction func gotoNewCardBtnPressed(_ sender: Any) {
         delegate?.creatNewCard(with: title)
     }
+    
     @IBAction func presentCreatNewCard(_ sender: Any) {
-        delegate?.SelectFavouriteCategory(with: title)
+//        delegate?.SelectFavouriteCategory(with: title1)
     }
-//    
+
+    @IBAction func BuMoreOptions(_ sender: Any) {
+//        delegate?.MoreButtonAction(with: title2)
+        didDelete()
+    }
+    var didDelete: () -> ()  = { }
+    var didStar: () -> ()  = { }
+
+    
 }
 
 protocol tableviewCellDelegate:AnyObject {
     func creatNewCard(with title:String)
-    func SelectFavouriteCategory(with title1:String)
+//    func SelectFavouriteCategory(with title1:String)
 
 }

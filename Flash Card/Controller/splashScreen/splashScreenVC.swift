@@ -13,7 +13,8 @@ class splashScreenVC: UIViewController {
     var player: AVPlayer?
     var timer: Timer?
     var second = 0
-    
+    var logedIn = 1
+
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,6 @@ class splashScreenVC: UIViewController {
             self.updateTimer()
         })
     }
-    
-    var logedIn = 1
-    
     @objc func updateTimer() {
         if second == 5 {
             // go to login or home

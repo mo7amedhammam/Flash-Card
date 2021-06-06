@@ -10,15 +10,16 @@ import UIKit
 class favouriteCell: UICollectionViewCell {
     @IBOutlet weak var FavNameLA: UILabel!
     @IBOutlet weak var delBtnOut: UIButton!
-   
+    
+
     override func awakeFromNib() {
+
         
         super.awakeFromNib()
         // Initialization code
-        //        delBtnOut.isHidden = true
-        
+    
     }
-   
+    
     
     
     var delegate : favourtDelegate!
@@ -26,10 +27,10 @@ class favouriteCell: UICollectionViewCell {
     @IBAction func DelFavBtn(_ sender: Any) {
         self.delegate.DeleteFavourite(value: index)
     }
-    
-    func toggleDelBtn(){
-        delBtnOut.isHidden = !delBtnOut.isHidden
-    }
+//    
+//    func toggleDelBtn(){
+//        delBtnOut.isHidden = !delBtnOut.isHidden
+//    }
 }
 
 protocol favourtDelegate {

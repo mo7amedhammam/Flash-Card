@@ -9,25 +9,20 @@ import UIKit
 
 class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , favourtDelegate {
     
-    //    let cellobject = favouriteCell()
-    var toggleflag = 0
-    let favouriteCellObject = favouriteCell()
-    @IBAction func aditBtn(_ sender: Any) {
-        favouriteCellObject.toggleDelBtn()
-        collectionViewOut.reloadData()
-        
-    }
-    
+    // delete cell in collection
     func DeleteFavourite(value: String) {
         for data in self.FavListArr {
             if data == value {
                 self.FavListArr = self.FavListArr.filter{$0 != data}
                 self.collectionViewOut.reloadData()
-                
             }
         }
     }
     
+    let favouriteCellObject = favouriteCell()
+    @IBAction func aditBtn(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionsetup()
@@ -37,11 +32,11 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
     // image picker in CollectionView
     @IBOutlet weak var collectionViewOut: UICollectionView!
     var FavListArr = ["Geo","comp"]
-    
+
     func collectionsetup() {
         collectionViewOut.delegate = self
         collectionViewOut.dataSource = self
-        collectionViewOut.isUserInteractionEnabled = true
+//        collectionViewOut.isUserInteractionEnabled = true
         //        collectionViewOut.registerCell(cellClass: favouritesPlusCell.self)
     }
     
@@ -93,6 +88,9 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func BackBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
 }

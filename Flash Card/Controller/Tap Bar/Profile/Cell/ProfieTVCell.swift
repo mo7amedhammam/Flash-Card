@@ -22,18 +22,24 @@ class ProfieTVCell: UITableViewCell {
     
     
     var clicked = 0
+    var didStar : () -> () = {}
+    var didDelete : () -> () = {}
+
     @IBAction func ProfileStarBtn(_ sender: Any) {
         if clicked == 0 {
             clicked = 1
+            didStar()
             ProfileStarBuOutlet.isSelected = true
         }else{
             ProfileStarBuOutlet.isSelected = false
             clicked = 0
-
         }
-
     }
     
+    @IBAction func BuMoreOptions(_ sender: Any) {
+//        delegate?.MoreButtonAction(with: title2)
+        didDelete()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
