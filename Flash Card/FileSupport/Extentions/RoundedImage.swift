@@ -17,3 +17,22 @@ class CircularImageView: UIImageView {
         self.clipsToBounds = true
     }
 }
+
+// MARK: Blure Effect
+extension UIView {
+  func blurView(style: UIBlurEffect.Style) {
+    var blurEffectView = UIVisualEffectView()
+    let blurEffect = UIBlurEffect(style: style)
+    blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.frame = bounds
+    addSubview(blurEffectView)
+  }
+  
+  func removeBlur() {
+    for view in self.subviews {
+      if let view = view as? UIVisualEffectView {
+        view.removeFromSuperview()
+      }
+    }
+  }
+}

@@ -8,71 +8,138 @@
 import UIKit
 import SystemConfiguration
 import MapKit
+import Foundation
 
 
 class Helper: NSObject {
+    
         
-    class func setUserData( id : String , owner_mob_1 : String , email : String ,user_name : String ,type : String , token : String , chalet_id : String ){
+    class func setUserData( id : String , user_type : String , fName : String ,lName : String ,type : String , address : String , profile_img : String ,  cover_img : String , university : String , username : String , email : String , mobile : String , gender : String, joined_at : String , token : String , email_verified : Int , mobile_verified : Int , del_schedule : String , account_status : String ){
         let def = UserDefaults.standard
-        def.setValue(id, forKey: "id")
-        def.setValue(owner_mob_1, forKey: "owner_mob_1")
-        def.setValue(email, forKey: "email")
-        def.setValue(user_name, forKey: "user_name")
-        def.setValue(type, forKey: "gender")
-        def.setValue(token, forKey: "token")
-        def.setValue(chalet_id, forKey: "chalet_id")
+        
+        def.setValue(id              , forKey: "id")
+        def.setValue(user_type       , forKey: "user_type")
+        def.setValue(fName           , forKey: "fName")
+        def.setValue(lName           , forKey: "lName")
+        def.setValue(address         , forKey: "address")
+        def.setValue(profile_img     , forKey: "profile_img")
+        def.setValue(cover_img       , forKey: "cover_img")
+        def.setValue(university      , forKey: "university")
+        def.setValue(username        , forKey: "username")
+        def.setValue(email           , forKey: "email")
+        def.setValue(mobile          , forKey: "mobile")
+        def.setValue(gender          , forKey: "gender")
+        def.setValue(joined_at       , forKey: "joined_at")
+        def.setValue(token           , forKey: "token")
+        def.setValue(email_verified  , forKey: "email_verified")
+        def.setValue(mobile_verified , forKey: "mobile_verified")
+        def.setValue(del_schedule    , forKey: "del_schedule")
+        def.setValue(account_status  , forKey: "account_status")
+        
         def.synchronize()
         //        restartApp()
     }
     
     
-    class func getUser_id()->String{
+    class func getid()->String{
         let def = UserDefaults.standard
         return (def.object(forKey: "id") as! String)
     }
-    
-    class func getUser_name() ->String {
+    class func getuser_type() ->String {
         let def = UserDefaults.standard
-        return (def.object(forKey: "user_name") as! String)
+        return (def.object(forKey: "user_type") as! String)
     }
-    class func getUser_phone() ->String {
+    class func getfName() ->String {
         let def = UserDefaults.standard
-        return (def.object(forKey: "owner_mob_1") as! String)
+        return (def.object(forKey: "fName") as! String)
     }
-    class func getUser_email() ->String {
+    class func getlName() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "lName") as! String)
+    }
+    class func getaddress() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "address") as! String)
+    }
+    class func getprofile_img() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "profile_img") as! String)
+    }
+    class func getcover_img() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "cover_img") as! String)
+    }
+    class func getuniversity() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "university") as! String)
+    }
+    class func getusername() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "username") as! String)
+    }
+    class func getemail() ->String {
         let def = UserDefaults.standard
         return (def.object(forKey: "email") as! String)
     }
-    class func getUser_Type() ->String {
+    class func getmobile() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "mobile") as! String)
+    }
+    class func getgender() ->String {
         let def = UserDefaults.standard
         return (def.object(forKey: "gender") as! String)
     }
-    class func getUser_Token() ->String {
+    class func getjoined_at() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "joined_at") as! String)
+    }
+    class func gettoken() ->String {
         let def = UserDefaults.standard
         return (def.object(forKey: "token") as! String)
     }
-    
-    class func getChalet_id() ->String {
+    class func getemail_verified() ->String {
         let def = UserDefaults.standard
-        return (def.object(forKey: "chalet_id") as! String)
+        return (def.object(forKey: "email_verified") as! String)
     }
- 
+    class func getmobile_verified() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "mobile_verified") as! String)
+    }
+    class func getdel_schedule() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "del_schedule") as! String)
+    }
+    class func getaccount_status() ->String {
+        let def = UserDefaults.standard
+        return (def.object(forKey: "account_status") as! String)
+    }
+    
+    
     // check in scene delegate
-    class func getUserData()->Bool{
+    class func CheckDateExist()->Bool{
         let def = UserDefaults.standard
         return (def.object(forKey: "user_name") as? String) != nil
     }
-    //save password
-    class func setPasswordSave(password : String){
+    
+    //save token
+    class func settoken(token : String){
         let def = UserDefaults.standard
-        def.setValue(password, forKey: "passwordSave")
+        def.setValue(token, forKey: "token")
         def.synchronize()
     }
     
     
-    class func getPasswordSave()->String{
+    //save password
+    class func setPassword(password : String){
         let def = UserDefaults.standard
-        return (def.object(forKey: "passwordSave") as! String)
+        def.setValue(password, forKey: "password")
+        def.synchronize()
+    }
+    
+    
+    class func getPassword()->String{
+        let def = UserDefaults.standard
+        return (def.object(forKey: "password") as! String)
     }
     
     //
@@ -95,14 +162,24 @@ class Helper: NSObject {
     
     class func logout() {
         let def = UserDefaults.standard
-        def.removeObject(forKey: "id")
-        def.removeObject(forKey: "owner_mob_1")
-        def.removeObject(forKey: "email")
-        def.removeObject(forKey: "user_name")
-        def.removeObject(forKey: "gender")
-        def.removeObject(forKey: "token")
-        def.removeObject(forKey: "chalet_id")
-        def.removeObject(forKey: "profileImage")
+        def.removeObject( forKey: "id")
+        def.removeObject( forKey: "user_type")
+        def.removeObject( forKey: "fName")
+        def.removeObject( forKey: "lName")
+        def.removeObject( forKey: "address")
+        def.removeObject( forKey: "profile_img")
+        def.removeObject( forKey: "cover_img")
+        def.removeObject( forKey: "university")
+        def.removeObject( forKey: "username")
+        def.removeObject( forKey: "email")
+        def.removeObject( forKey: "mobile")
+        def.removeObject( forKey: "gender")
+        def.removeObject( forKey: "joined_at")
+        def.removeObject( forKey: "token")
+        def.removeObject( forKey: "email_verified")
+        def.removeObject( forKey: "mobile_verified")
+        def.removeObject( forKey: "del_schedule")
+        def.removeObject( forKey: "account_status")
 
 
     }
@@ -111,6 +188,12 @@ class Helper: NSObject {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: emailStr)
+    }
+    
+    class func isValidPassword(passwordStr:String) -> Bool {
+        let passwordRegEx = "(?=.{8,})"
+        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return passwordPred.evaluate(with: passwordStr)
     }
     
     class func dialNumber(number : String) {
@@ -155,6 +238,27 @@ class Helper: NSObject {
         window.rootViewController = vc
     }
     
+    class func PushToAnyScreen (TargetStoryboard : String , targetViewController : String) {
+        let storyboard = UIStoryboard(name: TargetStoryboard , bundle: nil)
+        var vc:UIViewController
+        vc = storyboard.instantiateViewController(withIdentifier: targetViewController )
+        let nav = UINavigationController()
+        nav.pushViewController(vc, animated: true)
+    }
+    class func PopAnyScreen () {
+      
+        let nav = UINavigationController()
+        nav.popViewController(animated: true)
+    }
+    class func PopAnyRootScreen () {
+      
+        let nav = UINavigationController()
+        nav.popToRootViewController(animated: true)
+    }
+    
+   
+    
+    
     class func retreiveCityName(lattitude: Double, longitude: Double, completionHandler: @escaping (String?) -> Void) {
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(CLLocation(latitude: lattitude, longitude: longitude), completionHandler:
@@ -171,6 +275,32 @@ class Helper: NSObject {
                 completionHandler(address)
              })
         }
+    
+    
+    
+    
+    enum pushTo {
+        case tabBar
+        case VC
+    }
+    class func PushTo(type:pushTo,id: AnyClass ){
+        let storyboard = UIStoryboard(name: "Main" , bundle: nil)
+        let nav = UINavigationController()
+
+        switch type {
+        case .tabBar:
+            let  vc = (storyboard.instantiateViewController(withIdentifier: "\(id)")) as! UITabBarController
+            vc.selectedIndex = 0
+            print("push")
+            nav.pushViewController(vc , animated: true)
+
+        case .VC:
+            let vc = (storyboard.instantiateViewController(withIdentifier: "\(id)")) as UIViewController
+            nav.pushViewController(vc , animated: true)
+
+        }
+
+    }
     
     
 

@@ -68,7 +68,7 @@ class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         CArdStatusTxtFOut.text  = cardStatusArray[row]
-        PickerViewOut.endEditing(true)
+        self.view.endEditing(true)
         //        PickerViewOut.isHidden = true
     }
     

@@ -10,7 +10,8 @@ import UIKit
 class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , favourtDelegate {
     
     // delete cell in collection
-    func DeleteFavourite(value: String) {
+   
+         func DeleteFavourite(value: String) {
         for data in self.FavListArr {
             if data == value {
                 self.FavListArr = self.FavListArr.filter{$0 != data}
@@ -20,9 +21,15 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     let favouriteCellObject = favouriteCell()
+    var clicked = true
     @IBAction func aditBtn(_ sender: Any) {
-        
+        clicked =  !clicked
+        collectionViewOut.reloadData()
+    
     }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionsetup()
@@ -54,6 +61,7 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell0 = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouritesPlusCell", for: indexPath) as! favouritesPlusCell
         let cell = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouriteCell", for: indexPath) as! favouriteCell
+        cell.delBtnOut.isHidden = clicked
         
         if indexPath.row == 0 {
             return cell0

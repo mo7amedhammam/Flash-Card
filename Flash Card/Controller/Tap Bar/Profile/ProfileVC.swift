@@ -59,6 +59,8 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.cellsNumber -= 1
                 self.ProfileTVOutlet.deleteRows(at: [indexPath], with: .fade)
                 self.ProfileTVOutlet.reloadData()
+                    
+                    
                     }))
 
                     alert1.addAction(UIAlertAction(title: "Cacel", style: .cancel, handler: { [self] (action) in

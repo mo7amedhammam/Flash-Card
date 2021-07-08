@@ -7,6 +7,8 @@
 
 import UIKit
 import Foundation
+import PKHUD
+
 class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var SettingTVOutlet: UITableView!
@@ -55,15 +57,64 @@ class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         move(id: settingLabelNames[indexPath.row])
-        
     }
     
     
     func move(id: String ){
-        let vc = (storyboard?.instantiateViewController(withIdentifier: id)) as! UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if id == "Sign Out"{
+            actionSheet()
+        }
+        else{
+            let vc = (storyboard?.instantiateViewController(withIdentifier: id))!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
+    func actionSheet(){
+        
+        // 1
+        let actionMenue = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+        
+        // 2
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { (UIAlertAction) in
+            
+            print(Helper.gettoken())   // ok
+            self.logutAction()
+        }
+//        let saveAction = UIAlertAction(title: "Save", style: .default)
+        
+        // 3
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        // 4
+        actionMenue.addAction(signOutAction)
+//        actionMenue.addAction(saveAction)
+        actionMenue.addAction(cancelAction)
+        
+        // 5
+        self.present(actionMenue, animated: true, completion: nil)
+
+    }
+    
+    func logutAction()  {
+        if Reachable.isConnectedToNetwork(){
+        API.userLogOut() { (success, result, message) in
+            if success {
+                
+                Helper.logout()
+                self.navigationController?.popToRootViewController(animated: true)
+                
+            }else {
+                HUD.flash(.label(result?.message), delay:  2.0)
+                print(message!)
+            }
+        }
+        
+        }else{
+            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
+
+        }
+    }
     
     
 }

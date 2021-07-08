@@ -55,7 +55,7 @@ class splashScreenVC: UIViewController {
         
     }
     func skipView()  {
-        if logedIn == 0{
+        if Shared.shared.logedin == 0{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "Login") as! Login
             vc.modalPresentationStyle = .fullScreen

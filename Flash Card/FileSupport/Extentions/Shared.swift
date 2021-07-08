@@ -9,7 +9,7 @@ import Foundation
 
 final class Shared {
     static let shared = Shared()
-    var nn = 0
+    var logedin = 0
   
 
 }

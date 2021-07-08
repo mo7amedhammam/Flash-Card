@@ -45,14 +45,13 @@ class AllCardsTVCell: UITableViewCell {
     
     
     var clicked = 0
-    var clicked1 = 0
     var stared : Bool!
 
     
 
+    var didStar: () -> ()  = { }
+    var clicked1 = 0
     @IBAction func BuStar(_ sender: Any) {
-//        delegate?.SelectFavouriteCategory(with: title1)
-
         if clicked1 != 1 {
                 stared = true
                 clicked1 = 1
@@ -145,7 +144,6 @@ class AllCardsTVCell: UITableViewCell {
         didDelete()
     }
     var didDelete: () -> ()  = { }
-    var didStar: () -> ()  = { }
 
     
 }

@@ -6,49 +6,96 @@
 //
 
 import UIKit
+import PKHUD
 
 class Login: UIViewController {
     
     @IBOutlet weak var BtnShowPassword: UIButton!
     
-    @IBOutlet weak var userNameTF: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var TFEmail: SkyFloatingLabelTextFieldWithIcon!
     
-    @IBOutlet weak var passwordTf: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var TFPassword: SkyFloatingLabelTextFieldWithIcon!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+//        presentSplash()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        presentSplash()
-        //        passwordTf.isSecureTextEntry = true
         
     }
     
-//    func presentSplash() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "splashScreenVC") as! splashScreenVC
-//        modalPresentationStyle = .popover
-//        present(vc, animated: true, completion: nil)
-//        
-//    }
+    func presentSplash() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "splashScreenVC") as! splashScreenVC
+        modalPresentationStyle = .popover
+        present(vc, animated: true, completion: nil)
+        
+    }
     
     var clicked = 0
     @IBAction func BUAgreeTerms(_ sender: Any) {
         if clicked == 0 {
             clicked = 1
             BtnShowPassword.isSelected = true
-            passwordTf.isSecureTextEntry = false
+            TFPassword.isSecureTextEntry = false
         }else{
             clicked = 0
             BtnShowPassword.isSelected = false
-            passwordTf.isSecureTextEntry = true
+            TFPassword.isSecureTextEntry = true
         }
         
     }
+    
+    
+    @IBAction func BtnSignIn(_ sender: Any) {
+//        print("------ login -----")
+        if Reachable.isConnectedToNetwork() {
+            if TFEmail.text!.isEmpty  || Helper.isValidEmail(emailStr: TFEmail.text!) == false {
+                showAlert(message: "Please Enter Valid Email", buttonTitle: "OK")
+            } else if TFPassword.text!.isEmpty {
+                    showAlert(message: "Please Enter Your Password", buttonTitle: "OK")
+            }else{
+               // your code
+            login(email: TFEmail.text!, password: TFPassword.text!)
+            }
+        } else {
+            // no internet
+            showAlert(message: "No Internet Connection", buttonTitle: "OK")
+        }
+    }
+    
+    
+    
+   // var loginmodel = LoginModel?
+    func login(email:String , password:String)  {
+        if Reachable.isConnectedToNetwork(){
+        API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!) { (success,result,error) in
+            if success {
+
+                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
+     
+                self.moveToHomeTab()
+                
+            }else{
+                HUD.flash(.label(result?.message), delay:  2.0)
+            }
+        }
+            }else{
+                HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
+            }
+        }
+    
+    func moveToHomeTab (){
+        let vc = storyboard?.instantiateViewController(identifier: "HomeTabBar") as! HomeTabBar
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func DontHaveAccountBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreatNewUser") as! CreatNewUser
-        //        self.navigationController?.pushViewController(vc, animated: true)
-        //  performSegue(withIdentifier: "gotoCreatUser", sender: nil)
-//        self.dismiss(animated: true, completion: nil)
-//        present(vc, animated: true, completion: nil)
                 vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -60,16 +107,7 @@ class Login: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
  
     }
-    
-    
-    @IBAction func Skip(_ sender: Any) {
-        print("push Pressed")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AllCardsVC") as! AllCardsVC
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
+ 
     @IBAction func Back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
 
