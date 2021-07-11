@@ -1,0 +1,6 @@
+framework module Pods_Flash_Card_Flash_CardUITests {
+  umbrella header "Pods-Flash Card-Flash CardUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
