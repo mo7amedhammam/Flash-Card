@@ -60,7 +60,7 @@ class Login: UIViewController {
                     showAlert(message: "Please Enter Your Password", buttonTitle: "OK")
             }else{
                // your code
-            login(email: TFEmail.text!, password: TFPassword.text!)
+                login(email: TFEmail.text!, password: TFPassword.text!, lang: "en")
             }
         } else {
             // no internet
@@ -71,9 +71,9 @@ class Login: UIViewController {
     
     
    // var loginmodel = LoginModel?
-    func login(email:String , password:String)  {
+    func login(email:String , password:String , lang : String)  {
         if Reachable.isConnectedToNetwork(){
-                API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!, lang: "en") { (success,result,error) in
+            API.userLogin(Email: email , Password: password, lang: lang) { (success,result,error) in
             if success {
 
                 Helper.settoken(token: "Bearer "+(result?.data?.token)!)

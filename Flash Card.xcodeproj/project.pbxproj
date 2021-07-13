@@ -31,6 +31,7 @@
 		90715929265D363300995E45 /* CheckConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90715928265D363300995E45 /* CheckConnection.swift */; };
 		907397EC261B63B900380516 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907397EB261B63B900380516 /* Login.swift */; };
 		9086186D2656A38E00ADB13A /* bluelogo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9086186C2656A38E00ADB13A /* bluelogo.mp4 */; };
+		9089DD4F269DAEFD0023E3B4 /* LogOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9089DD4E269DAEFD0023E3B4 /* LogOutModel.swift */; };
 		908E47F6261F17980054E45D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908E47F5261F17980054E45D /* ProfileVC.swift */; };
 		908E47FE261F17FE0054E45D /* HeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908E47FC261F17FE0054E45D /* HeaderTVCell.swift */; };
 		908E47FF261F17FE0054E45D /* HeaderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908E47FD261F17FE0054E45D /* HeaderTVCell.xib */; };
@@ -130,6 +131,7 @@
 		90715928265D363300995E45 /* CheckConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckConnection.swift; sourceTree = "<group>"; };
 		907397EB261B63B900380516 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9086186C2656A38E00ADB13A /* bluelogo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bluelogo.mp4; sourceTree = "<group>"; };
+		9089DD4E269DAEFD0023E3B4 /* LogOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutModel.swift; sourceTree = "<group>"; };
 		908E47F5261F17980054E45D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		908E47FC261F17FE0054E45D /* HeaderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTVCell.swift; sourceTree = "<group>"; };
 		908E47FD261F17FE0054E45D /* HeaderTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTVCell.xib; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 			children = (
 				901762AC266566D50023CB61 /* PostModel.swift */,
 				90C34DD6269276B0001302AB /* LoginResponse.swift */,
+				9089DD4E269DAEFD0023E3B4 /* LogOutModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				901FA516265AAFC5004D0283 /* HomeTabBar.swift in Sources */,
 				90EC2B83261C5E3800E58E5A /* AllCardsTVCell.swift in Sources */,
 				90C34DE8269285C8001302AB /* APIRouter.swift in Sources */,
+				9089DD4F269DAEFD0023E3B4 /* LogOutModel.swift in Sources */,
 				90C34DD7269276B0001302AB /* LoginResponse.swift in Sources */,
 				90D59B95261DEDF500F98DAF /* ResetPassword.swift in Sources */,
 				90A9B5F32623188A00434F43 /* SignOutVC.swift in Sources */,

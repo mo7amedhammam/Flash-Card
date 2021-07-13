@@ -58,9 +58,9 @@ private var path: String {
         switch self {
                 case let .Login(email, passwoerd , lang) :
                     parameters  = ["email": email, "password": passwoerd , "lang": lang]
+                    urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                     urlRequest            = URLRequest(url: urlComponents.url!)
                     urlRequest            = try JSONEncoding.default.encode(urlRequest, with: parameters)
-                    urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                     urlRequest.httpMethod = method.rawValue
                     return urlRequest
                     
@@ -74,10 +74,11 @@ private var path: String {
                     
         case .SignOut:
 
-            urlRequest.setValue( Helper.gettoken(), forHTTPHeaderField: "Authorization")
-            urlRequest.setValue( "XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+            urlRequest.addValue( Helper.gettoken(), forHTTPHeaderField: "Authorization")
+            urlRequest.addValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+//            urlRequest.setValue( "XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
             urlRequest            = URLRequest(url: urlComponents.url!)
-           // urlRequest            = try JSONEncoding.default.encode(urlRequest, with: nil)
+            urlRequest            = try JSONEncoding.default.encode(urlRequest, with: nil)
             urlRequest.httpMethod = method.rawValue
             return urlRequest
             

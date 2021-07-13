@@ -44,7 +44,7 @@ class API: NSObject {
     //MARK:  ----- User Login -----
     class func  userLogin ( Email : String, Password : String ,lang: String, completion : @escaping (Bool,LoginModel?, String?) ->Void) {
         HUD.show(.progress)
-        AF.request(APIRouter.Login(email: Email, password: Password, lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<LoginModel?, AFError>) in
+        AF.request(APIRouter.Login(email: Email, password: Password, lang: "en")).responseDecodable(completionHandler: {(response: DataResponse<LoginModel?, AFError>) in
             
             HUD.hide()
             switch response.result {
@@ -80,6 +80,7 @@ class API: NSObject {
                 completion(false,nil, error.localizedDescription)
                 HUD.flash(.label(error.localizedDescription),delay: 2.0)
                 print(error.localizedDescription)
+                print(String(describing: error))
                 
             case .success(let model):
                 guard model != nil else {return}

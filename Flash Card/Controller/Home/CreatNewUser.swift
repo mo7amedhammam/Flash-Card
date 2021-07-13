@@ -77,7 +77,7 @@ class CreatNewUser: UIViewController {
             API.userRegister(fName: fName!, lName: lName!, gender: gender!, username: username!, mobile: mobile!, email: email!, password: password!, password_confirmation: password_confirmation!, lang: lang!){ (success,result,error) in
             if success {
                 
-                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
+                Helper.settoken(token: "Bearer" + " " + (result?.data?.token)!)
                 self.moveToHomeTab()
 
             }else {
