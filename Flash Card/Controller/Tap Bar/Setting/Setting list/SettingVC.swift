@@ -41,6 +41,18 @@ class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func getViewController<T>(_ viewControllerType: T.Type, with identifier: String) -> T where T: UIViewController {
+            if #available(iOS 13.0, *) {
+               let pushedVC = storyboard?.instantiateViewController(identifier: identifier) as! T
+                navigationController?.pushViewController(pushedVC, animated: true)
+                return pushedVC
+            } else {
+              let pushedVC = storyboard?.instantiateViewController(withIdentifier: identifier) as! T
+                navigationController?.pushViewController(pushedVC, animated: true)
+                return pushedVC
+            }
+        }
+
     
     func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
         return settingLabelNames.count
@@ -102,8 +114,14 @@ class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if success {
                 
                 Helper.logout()
-                self.navigationController?.popToRootViewController(animated: true)
+                _ = self.getViewController(Login.self, with: "Login")
+//                Helper.GoToAnyScreen(storyboard: "Main", identifier: "Login")
+//
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "Login") as! Login
+//                self.navigationController?.popToViewController(vc, animated: true)
                 
+//                self.navigationController?.popToRootViewController(animated: true)
             }else {
                 HUD.flash(.label(result?.message), delay:  2.0)
                 print(message!)

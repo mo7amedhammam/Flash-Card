@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YH7-cm-29H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YH7-cm-29H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -879,7 +879,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCardsTVCell0" rowHeight="162" id="XXs-mt-Apr" customClass="AllCardsTVCell" customModule="Flash_Card" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="162"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="162"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XXs-mt-Apr" id="SuT-en-90c">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
@@ -1060,7 +1060,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCardsTVCell" rowHeight="490" id="Y81-7j-J2j" customClass="AllCardsTVCell" customModule="Flash_Card" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="190" width="414" height="490"/>
+                                                <rect key="frame" x="0.0" y="186.5" width="414" height="490"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y81-7j-J2j" id="Pdw-Iz-1iI">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="490"/>
@@ -4101,7 +4101,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="122-bj-Hrr" kind="relationship" relationship="rootViewController" id="wkd-UH-tYr"/>
+                        <segue destination="122-bj-Hrr" kind="relationship" relationship="rootViewController" id="gTI-2P-1X1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUg-PW-DhB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

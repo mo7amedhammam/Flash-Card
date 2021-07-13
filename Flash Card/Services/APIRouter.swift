@@ -49,7 +49,7 @@ private var path: String {
 //MARK:- Build Complete Request
     func asURLRequest() throws -> URLRequest {
         let url = try APIRouter.BaseUrl.asURL().appendingPathComponent(path)
-        let urlComponents      = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        var urlComponents      = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         var urlRequest         = URLRequest(url: url)
         urlRequest.httpMethod  = method.rawValue
         var parameters         = Parameters()
@@ -88,12 +88,16 @@ private var path: String {
             return urlRequest
             
         case let .getPosts(lang):
-            parameters  = ["lang": lang]
-            urlRequest.addValue( Helper.gettoken(), forHTTPHeaderField: "Authorization")
-            urlRequest.addValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+           
+            //parameters  = ["lang": lang]
+            let queryIems = [URLQueryItem(name: "lang", value:lang)]
+            urlComponents.queryItems = queryIems
+            urlRequest.setValue( Helper.gettoken(), forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+//            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             urlRequest            = URLRequest(url: urlComponents.url!)
-            urlRequest            = try JSONEncoding.default.encode(urlRequest, with: nil)
-            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            urlRequest            = try JSONEncoding.default.encode(urlRequest)
             urlRequest.httpMethod = method.rawValue
             return urlRequest
         }

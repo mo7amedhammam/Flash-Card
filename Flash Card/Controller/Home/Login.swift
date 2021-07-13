@@ -18,7 +18,8 @@ class Login: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationController?.navigationBar.isHidden =  true
+        self.tabBarController?.tabBar.isHidden = true
 //        presentSplash()
     }
     

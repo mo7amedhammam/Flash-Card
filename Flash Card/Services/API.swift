@@ -100,26 +100,33 @@ class API: NSObject {
     
     
     //MARK: --- Get Posts -----
-    class func  getPosts ( lang : String , completion : @escaping (Bool,LoginModel?, String?) ->Void) {
+    class func  getPosts ( lang : String , completion : @escaping ([PostModel]?) ->Void) {
         HUD.show(.progress)
-        AF.request(APIRouter.getPosts(lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<LoginModel?, AFError>) in
+        AF.request(APIRouter.getPosts(lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<PostModel?, AFError>) in
             
             HUD.hide()
             switch response.result {
             
             case .failure(let error):
-                completion(false,nil, error.localizedDescription)
+                completion([])
+                print(error.localizedDescription)
                 HUD.flash(.label(error.localizedDescription),delay: 2.0)
                 
             case .success(let model):
-                guard model != nil else {return}
-                
-                if model?.status == true {
-                    completion(true,model,nil)
+              //  guard model != nil else {return}
+                if model?.status == true && model?.message == "success"{
+                    completion([model?.data] as? Array)
                     
-                } else {
-                    completion(false,nil,model?.message)
-                    HUD.flash(.label(model?.message),delay: 2.0)
+                }
+//                if model != nil && model?.isEmpty == false {
+//                    completion(model)
+//                }
+//                if model?.first?.status == true {
+//                    completion(model?.first?.data ?? [])
+//
+//                }
+                else {
+                    completion([])
                     
                 }
             }

@@ -115,6 +115,8 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.delegate = self
         chekNetworkThenReloadData()
         addRefreshControl()
+        
+        getPost()
     }
     
     func chekNetworkThenReloadData() {
@@ -139,7 +141,14 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // -----------------------------------------------------
     // -----------------------------------------------------
     
-    
+    func getPost(){
+        API.getPosts(lang: "en") { result in
+            if result != nil && result?.isEmpty == false {
+                print(result)
+                print(result?.first?.data)
+            }
+        }
+    }
     
     
     
