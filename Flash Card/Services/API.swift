@@ -42,9 +42,9 @@ class API: NSObject {
     
 
     //MARK:  ----- User Login -----
-    class func  userLogin ( Email : String, Password : String , completion : @escaping (Bool,LoginModel?, String?) ->Void) {
+    class func  userLogin ( Email : String, Password : String ,lang: String, completion : @escaping (Bool,LoginModel?, String?) ->Void) {
         HUD.show(.progress)
-        AF.request(APIRouter.Login(email: Email, password: Password, lang: "en")).responseDecodable(completionHandler: {(response: DataResponse<LoginModel?, AFError>) in
+        AF.request(APIRouter.Login(email: Email, password: Password, lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<LoginModel?, AFError>) in
             
             HUD.hide()
             switch response.result {

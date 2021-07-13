@@ -72,7 +72,7 @@ class Login: UIViewController {
    // var loginmodel = LoginModel?
     func login(email:String , password:String)  {
         if Reachable.isConnectedToNetwork(){
-        API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!) { (success,result,error) in
+                API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!, lang: "en") { (success,result,error) in
             if success {
 
                 Helper.settoken(token: "Bearer "+(result?.data?.token)!)
