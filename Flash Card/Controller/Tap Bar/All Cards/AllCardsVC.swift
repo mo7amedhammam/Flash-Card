@@ -111,7 +111,10 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.addSubview(refreshcontrol)
     }
     @objc func refreshingfunction()  {
-        getPosts(type: "refresh")
+        DispatchQueue.main.async {
+            self.postData?.removeAll()
+            self.getPost(type: "refresh")
+        }
 //        chekNetworkThenReloadData()
         
 //        refreshcontrol.endRefreshing()
