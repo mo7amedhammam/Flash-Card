@@ -89,16 +89,15 @@ private var path: String {
             
         case let .getPosts(lang):
            
-            //parameters  = ["lang": lang]
             let queryIems = [URLQueryItem(name: "lang", value:lang)]
             urlComponents.queryItems = queryIems
+            urlRequest               = URLRequest(url: urlComponents.url!)
             urlRequest.setValue( Helper.gettoken(), forHTTPHeaderField: "Authorization")
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
-//            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            urlRequest            = URLRequest(url: urlComponents.url!)
-            urlRequest            = try JSONEncoding.default.encode(urlRequest)
-            urlRequest.httpMethod = method.rawValue
+           // urlRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            urlRequest = try JSONEncoding.default.encode(urlRequest)
+            urlRequest.httpMethod    = method.rawValue
             return urlRequest
         }
     }

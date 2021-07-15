@@ -103,7 +103,7 @@ class API: NSObject {
     class func  getPosts ( lang : String , completion : @escaping ([PostModel]?) ->Void) {
         HUD.show(.progress)
         AF.request(APIRouter.getPosts(lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<PostModel?, AFError>) in
-            
+            print(response.response?.statusCode ?? 0)
             HUD.hide()
             switch response.result {
             
