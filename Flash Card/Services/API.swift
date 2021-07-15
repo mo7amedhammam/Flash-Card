@@ -100,22 +100,29 @@ class API: NSObject {
     
     
     //MARK: --- Get Posts -----
-    class func  getPosts ( lang : String , completion : @escaping ([PostModel]?) ->Void) {
-        HUD.show(.progress)
+    class func  getPosts ( lang : String , completion : @escaping (PostModel?,String?) ->Void) {
+       // HUD.show(.progress)
         AF.request(APIRouter.getPosts(lang: lang)).responseDecodable(completionHandler: {(response: DataResponse<PostModel?, AFError>) in
             print(response.response?.statusCode ?? 0)
             HUD.hide()
             switch response.result {
             
             case .failure(let error):
-                completion([])
+                completion(nil,"There is something wrong please try agian later.")
                 print(error.localizedDescription)
                 HUD.flash(.label(error.localizedDescription),delay: 2.0)
                 
             case .success(let model):
               //  guard model != nil else {return}
                 if model?.status == true && model?.message == "success"{
-                    completion([model?.data] as? Array)
+//                    var adsImagePaths = [PostModel]()
+//                    adsImagePaths.removeAll()
+//                    model?.data?.forEach({ (ads) in
+//                        adsImagePaths.append(ads)
+//                    })
+                    completion(model, nil)
+                  //  HUD.hide()
+                   // completion(model.data ?? [] , nil)
                     
                 }
 //                if model != nil && model?.isEmpty == false {
@@ -126,7 +133,7 @@ class API: NSObject {
 //
 //                }
                 else {
-                    completion([])
+                    completion(nil, "There is something wrong please try agian later.")
                     
                 }
             }

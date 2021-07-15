@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import PKHUD
 
 
 class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    var postData : [Data]?
     var cellsNumber = 5
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellsNumber
+        return postData?.count ?? 0 + 1
         //        return posttextarray.count
     }
     
@@ -27,6 +28,7 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCardsTVCell") as! AllCardsTVCell
+            cell.TimeLabel.text = postData?[indexPath.row].front_text
             //        cell.backgroundColor = .purple
             //        cell.cellLAble.textColor = .lightText
             //            cell.PostLa.text = "\(posttextarray[indexPath.row])"
@@ -103,8 +105,10 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.addSubview(refreshcontrol)
     }
     @objc func refreshingfunction()  {
-        chekNetworkThenReloadData()
-        refreshcontrol.endRefreshing()
+        getPost(type: "refresh")
+//        chekNetworkThenReloadData()
+        
+//        refreshcontrol.endRefreshing()
     }
     
     override func viewDidLoad() {
@@ -115,8 +119,11 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.delegate = self
         chekNetworkThenReloadData()
         addRefreshControl()
-        
-        getPost()
+        getPost(type: "loadData")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getPost(type: "loadData")
     }
     
     func chekNetworkThenReloadData() {
@@ -141,11 +148,24 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // -----------------------------------------------------
     // -----------------------------------------------------
     
-    func getPost(){
-        API.getPosts(lang: "en") { result in
-            if result != nil && result?.isEmpty == false {
-                print(result)
-                print(result?.first?.data)
+    func getPost(type : String){
+        if type == "refresh"{
+            self.refreshcontrol.beginRefreshing()
+            postData?.removeAll()
+        }else{
+            HUD.show(.progress)
+        }
+        API.getPosts(lang: "en") { result,err  in
+            if result?.data != nil && result?.data?.isEmpty == false {
+                if let postsArr = result?.data {
+                    self.postData = postsArr
+                    print(self.postData ?? [])
+                    self.allCardsTVOutlet.reloadData()
+                        if type == "refresh"{
+                            self.refreshcontrol.endRefreshing()
+                        }
+                    HUD.hide()
+                }
             }
         }
     }
