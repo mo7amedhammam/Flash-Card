@@ -157,7 +157,9 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getPosts(type : String){
         if type == "refresh"{
             self.refreshcontrol.beginRefreshing()
-            postData?.removeAll()
+           // postData?.removeAll()
+            self.allCardsTVOutlet.reloadData()
+
         }else{
             HUD.show(.progress)
         }
