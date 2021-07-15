@@ -28,7 +28,13 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCardsTVCell") as! AllCardsTVCell
-            cell.TimeLabel.text = postData?[indexPath.row].front_text
+            cell.cellMainLabel.text = "\(postData?[indexPath.row-1].user?.fName ?? "")+\(postData?[indexPath.row-1].user?.lName ?? "")"
+            cell.TimeLabel.text = postData?[indexPath.row-1].created_at
+            
+            
+            
+            
+            
             //        cell.backgroundColor = .purple
             //        cell.cellLAble.textColor = .lightText
             //            cell.PostLa.text = "\(posttextarray[indexPath.row])"
@@ -105,7 +111,7 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.addSubview(refreshcontrol)
     }
     @objc func refreshingfunction()  {
-        getPost(type: "refresh")
+        getPosts(type: "refresh")
 //        chekNetworkThenReloadData()
         
 //        refreshcontrol.endRefreshing()
@@ -119,11 +125,11 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         allCardsTVOutlet.delegate = self
         chekNetworkThenReloadData()
         addRefreshControl()
-        getPost(type: "loadData")
+        getPosts(type: "loadData")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPost(type: "loadData")
+        getPosts(type: "loadData")
     }
     
     func chekNetworkThenReloadData() {
@@ -148,7 +154,7 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // -----------------------------------------------------
     // -----------------------------------------------------
     
-    func getPost(type : String){
+    func getPosts(type : String){
         if type == "refresh"{
             self.refreshcontrol.beginRefreshing()
             postData?.removeAll()

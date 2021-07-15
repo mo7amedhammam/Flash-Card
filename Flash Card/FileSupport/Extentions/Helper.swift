@@ -210,6 +210,23 @@ class Helper: NSObject {
     }
     
     
+    class func SetImage (EndPoint : String? , image : UIImageView , name : String , status : Int) {
+            // status == 0 system  else 1 named
+            if !EndPoint!.isEmpty || EndPoint != nil {
+                let url = URL(string: "http://flashbook.pina-app.com" + EndPoint!)
+                    image.kf.indicatorType = .activity
+                    image.kf.setImage(with: url)
+                } else {
+                    if status == 0 {
+                        image.image = UIImage(systemName: name)
+                        
+                    } else {
+                        image.image = UIImage(named: name)
+                        
+                    }
+                }
+            }
+    
     class func openWhatsapp(){
         let urlWhats = "whatsapp://send?phone=(+20 111 108 7446)"
         if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
@@ -305,3 +322,17 @@ class Helper: NSObject {
     
 
 }
+
+//extension UIImageView {
+//    func loadImage(endPoint: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(from: "http://flashbook.pina-app.com + \(endPoint)" as! Decoder ) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

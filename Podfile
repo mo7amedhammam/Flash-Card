@@ -13,6 +13,7 @@ pod 'SwiftyJSON'
 #pod 'sincs'
 pod 'PKHUD', '5.3.0'
 pod 'ImageViewer.swift' , '3.3.3'
+pod 'Kingfisher' , '6.3.0'
 
 
 
