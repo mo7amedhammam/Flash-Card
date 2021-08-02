@@ -16,17 +16,26 @@ class Login: UIViewController {
     
     @IBOutlet weak var TFPassword: SkyFloatingLabelTextFieldWithIcon!
     
+    var indicator:ProgressIndicator?
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-//        presentSplash()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("branch ")
-        print("Ragab Branch")
+        
+        
+        // indicator hud ----------------//
+        //    var indicator:ProgressIndicator?
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.lightGray, indicatorColor: #colorLiteral(red: 0.07058823529, green: 0.3568627451, blue: 0.6352941176, alpha: 1) , msg:  SalmanLocalize.textLocalize(key: "LPleaseWait") )
+        indicator?.center = self.view.center
+        self.view.addSubview(indicator!)
+        //  end indicator hud ----------------//
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //        presentSplash()
+    }
+    
     
     func presentSplash() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -52,66 +61,54 @@ class Login: UIViewController {
     
     
     @IBAction func BtnSignIn(_ sender: Any) {
-//        print("------ login -----")
-        if Reachable.isConnectedToNetwork() {
-            if TFEmail.text!.isEmpty  || Helper.isValidEmail(emailStr: TFEmail.text!) == false {
-                showAlert(message: "Please Enter Valid Email")
-            } else if TFPassword.text!.isEmpty {
-                    showAlert(message: "Please Enter Your Password")
-            }else{
-               // your code
-            login(email: TFEmail.text!, password: TFPassword.text!)
-            }
+        
+        if TFEmail.text == "" {
+            self.showAlert(message: "Please Enter Your Email")
+        } else if TFPassword.text == "" {
+            self.showAlert(message: "Please Enter Your Password")
         } else {
-            // no internet
-            showAlert(message: "No Internet Connection" )
+            self.indicator?.start()
+            if Reachable.isConnectedToNetwork() {
+                API.userLogin(email: TFEmail.text! , password: TFPassword.text!, lang: "en") { [self] (error : Error?, success : Bool?, message : String?) in
+                    if error == nil && success == true {
+                        let vc = storyboard?.instantiateViewController(identifier: "HomeTabBar") as! HomeTabBar
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        self.indicator?.stop()
+                    } else if error == nil && success == false {
+                        self.showAlert(message: message!)
+                        self.indicator?.stop()
+                    } else {
+                        self.showAlert(message: "Server Error")
+                        self.indicator?.stop()
+                        
+                    }
+                }
+            } else {
+                self.showAlert(message: "No Internet Connection")
+                self.indicator?.stop()
+            }
         }
-    }
-    
-    
-    
-   // var loginmodel = LoginModel?
-    func login(email:String , password:String)  {
-//        if Reachable.isConnectedToNetwork(){
-//                API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!, lang: "en") { (success,result,error) in
-//            if success {
-//
-//                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
-//
-//                self.moveToHomeTab()
-//
-//            }else{
-//                HUD.flash(.label(result?.message), delay:  2.0)
-//            }
-//        }
-//            }else{
-//                HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
-//            }
-        }
-    
-    func moveToHomeTab (){
-        let vc = storyboard?.instantiateViewController(identifier: "HomeTabBar") as! HomeTabBar
-        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @IBAction func DontHaveAccountBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreatNewUser") as! CreatNewUser
-                vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func RessetPasswordBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ResetPassword") as! ResetPassword
-                vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
- 
+        
     }
- 
+    
     @IBAction func Back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-
+        
     }
     
     

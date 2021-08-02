@@ -9,10 +9,12 @@ import Foundation
 
 struct URLs {
     
-    static let BaseUrl = "http://flashbook.pina-app.com/api"
-    static let Register = BaseUrl+"/auth/register"
-    static let Login = BaseUrl+"/auth/login"
-    static let AllUser = BaseUrl+"/users"
+    static let BaseUrl = "http://flashbook.pina-app.com/api/"
+    
+    static let Register = BaseUrl + "auth/register"
+    static let Login = BaseUrl + "auth/login"
+    static let AllUser = BaseUrl + "users"
+    static let Follow  = BaseUrl + "profile/follow"
 
     
 }

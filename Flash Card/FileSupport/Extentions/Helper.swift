@@ -9,12 +9,33 @@ import UIKit
 import SystemConfiguration
 import MapKit
 import Foundation
+import Kingfisher
 
 
 class Helper: NSObject {
     
+    
+//    "id": "5",
+//       "user_type": "student",
+//       "fName": "mohamed",
+//       "lName": "elzoghby",
+//       "address": "",
+//       "profile_img": null,
+//       "cover_img": null,
+//       "university": null,
+//       "username": "mohamed",
+//       "email": "m1@mail.com",
+//       "mobile": "+201101201322",
+//       "gender": "male",
+//       "joined_at": "02-08-2021",
+//       "token": "16|og0caP9T9MRCEWbDkyq79GSRdllmluPklp7e6xTZ",
+//       "email_verified": 0,
+//       "mobile_verified": 0,
+//       "del_schedule": null,
+//       "account_status":
+    
         
-    class func setUserData( id : String , user_type : String , fName : String ,lName : String ,type : String , address : String , profile_img : String ,  cover_img : String , university : String , username : String , email : String , mobile : String , gender : String, joined_at : String , token : String , email_verified : Int , mobile_verified : Int , del_schedule : String , account_status : String ){
+    class func setUserData( id : String , user_type : String , fName : String ,lName : String , address : String , profile_img : String ,  cover_img : String , university : String , username : String , email : String , mobile : String , gender : String, joined_at : String , token : String , email_verified : Int , mobile_verified : Int , del_schedule : String , account_status : String ){
         let def = UserDefaults.standard
         
         def.setValue(id              , forKey: "id")
@@ -116,18 +137,10 @@ class Helper: NSObject {
     
     
     // check in scene delegate
-    class func CheckDateExist()->Bool{
+    class func IsUserData()->Bool {
         let def = UserDefaults.standard
-        return (def.object(forKey: "user_name") as? String) != nil
+        return (def.object(forKey: "token") as? String) != nil
     }
-    
-    //save token
-    class func settoken(token : String){
-        let def = UserDefaults.standard
-        def.setValue(token, forKey: "token")
-        def.synchronize()
-    }
-    
     
     //save password
     class func setPassword(password : String){
@@ -180,8 +193,6 @@ class Helper: NSObject {
         def.removeObject( forKey: "mobile_verified")
         def.removeObject( forKey: "del_schedule")
         def.removeObject( forKey: "account_status")
-
-
     }
     
     class func isValidEmail(emailStr:String) -> Bool {
@@ -229,6 +240,22 @@ class Helper: NSObject {
     }
     
     
+    class func SetImage (EndPoint : String? , image : UIImageView , name : String , status : Int) {
+            // status == 0 system  else 1 named
+            if !EndPoint!.isEmpty || EndPoint != nil {
+                let url = URL(string: "http://flashbook.pina-app.com/" + EndPoint!)
+                    image.kf.indicatorType = .activity
+                    image.kf.setImage(with: url)
+                } else {
+                    if status == 0 {
+                        image.image = UIImage(systemName: name)
+                        
+                    } else {
+                        image.image = UIImage(named: name)
+                        
+                    }
+                }
+            }
     
     class func GoToAnyScreen (storyboard : String , identifier : String) {
         guard let window = UIApplication.shared.keyWindow else{return}

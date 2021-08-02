@@ -655,7 +655,6 @@
 			isa = PBXGroup;
 			children = (
 				9086185A26569FF800ADB13A /* splashScreen */,
-				90E13291261B1C21005D63AC /* Auth */,
 				90E13290261B1BF0005D63AC /* Home */,
 				90EC2B78261C5CAD00E58E5A /* Tap Bar */,
 			);
@@ -700,13 +699,6 @@
 				90D59B94261DEDF500F98DAF /* ResetPassword.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		90E13291261B1C21005D63AC /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		90EC2B78261C5CAD00E58E5A /* Tap Bar */ = {

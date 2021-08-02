@@ -55,19 +55,24 @@ class splashScreenVC: UIViewController {
         
     }
     func skipView()  {
-        if Shared.shared.logedin == 0{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "Login") as! Login
-            vc.modalPresentationStyle = .fullScreen
+        
+        
+        if Helper.IsUserData() == true {
             
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar
             vc.modalPresentationStyle = .fullScreen
             ////                    self.present(vc, animated: true, completion: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+     
+        } else {
+  
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Login") as! Login
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+    
     }
     
 }

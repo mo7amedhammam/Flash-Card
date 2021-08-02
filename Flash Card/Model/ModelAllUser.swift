@@ -10,7 +10,7 @@ import UIKit
 class ModelAllUser: NSObject {
     
     
-    var id            = 0
+    var id            = ""
     var user_type            = ""
     var fName            = ""
     var lName            = ""
@@ -21,7 +21,7 @@ class ModelAllUser: NSObject {
     
     init(
         
-        id    : Int ,
+        id    : String ,
         user_type    : String ,
         fName    : String ,
         lName    : String ,
