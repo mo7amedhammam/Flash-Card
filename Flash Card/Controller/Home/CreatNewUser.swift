@@ -77,7 +77,10 @@ class CreatNewUser: UIViewController {
             API.userRegister(fName: fName!, lName: lName!, gender: gender!, username: username!, mobile: mobile!, email: email!, password: password!, password_confirmation: password_confirmation!, lang: lang!){ (success,result,error) in
             if success {
                 
-                Helper.settoken(token: "Bearer" + " " + (result?.data?.token)!)
+//                Helper.settoken(token: "Bearer " + (result?.data?.token)!)
+                
+                Helper.setUserData(id: result?.data?.id ?? "" , user_type: result?.data?.user_type ?? "", fName: result?.data?.fName ?? "", lName: result?.data?.lName ?? "", address: result?.data?.address ?? "", profile_img: result?.data?.profile_img ?? "", cover_img: result?.data?.cover_img ?? "", university: result?.data?.university ?? "", username: result?.data?.username ?? "", email: result?.data?.email ?? "", mobile: result?.data?.mobile ?? "", gender: result?.data?.gender ?? "", joined_at: result?.data?.joined_at ?? "", token: (result?.data?.token!)!, email_verified: result?.data?.email_verified ?? 0, mobile_verified: result?.data?.mobile_verified ?? 0, del_schedule: result?.data?.del_schedule ?? "", account_status: result?.data?.account_status ?? "")
+                
                 self.moveToHomeTab()
 
             }else {

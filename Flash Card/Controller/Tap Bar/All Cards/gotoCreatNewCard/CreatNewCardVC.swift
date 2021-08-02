@@ -6,19 +6,28 @@
 //
 
 import UIKit
+import PKHUD
 
 class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    var postdata: [Data]?
     @IBOutlet weak var ContainerVOut: UIView!
     
-    @IBOutlet weak var FrontVOut: UIView!
-    @IBOutlet weak var FrontTVOut: UITextView!
+//    @IBOutlet weak var FrontVOut: UIView!
     @IBOutlet weak var FrontPlusImageOut: UIImageView!
     
     @IBOutlet weak var BackVOut: UIView!
     @IBOutlet weak var BackTVOut: UITextView!
     @IBOutlet weak var BackPlusImageOut: UIImageView!
+    
+    @IBOutlet weak var frontImageOut: UIImageView!
+    @IBOutlet weak var frontTextOut: UITextView!
+    @IBOutlet weak var backimageout: UIImageView!
+    @IBOutlet weak var backTextOut: UITextView!
+
+    @IBOutlet weak var DeletFrontImageOut: UIButton!
+    @IBOutlet weak var DeleteBackImageOut: UIButton!
     
     @IBOutlet weak var CardStatusVOut: UIView!
     
@@ -30,8 +39,7 @@ class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     var PickerViewOut: UIPickerView!
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +52,22 @@ class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         PickerViewOut.delegate = self
         CArdStatusTxtFOut.inputView = PickerViewOut
         
-        
     }
     
+    
+    @IBAction func addCard(_ sender: Any) {
+        
+        HUD.show(.labeledProgress(title: "u[loading", subtitle: nil))
+        API.addPost(lang: "en", front_text: frontTextOut.text ,back_text: backTextOut.text, arrImage: [frontImageOut.image! , frontImageOut.image!]) { success , err in
+            if success{
+                print("OK ----- ")
+
+            }else{
+                print("error ----- ")
+            }
+        }
+        
+    }
     
     
     @IBAction func BackBtn(_ sender: Any) {
@@ -56,7 +77,7 @@ class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     //PickerView
-    var cardStatusArray = ["st 1","st 2"]
+    var cardStatusArray = ["Student","Supervisor"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -121,10 +142,7 @@ class CreatNewCardVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
-    @IBOutlet weak var frontImageOut: UIImageView!
-    @IBOutlet weak var backimageout: UIImageView!
-    @IBOutlet weak var DeletFrontImageOut: UIButton!
-    @IBOutlet weak var DeleteBackImageOut: UIButton!
+
     
     func deleteImage(){
         if deleteIndex == 0 {

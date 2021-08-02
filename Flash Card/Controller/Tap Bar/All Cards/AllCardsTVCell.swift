@@ -78,26 +78,27 @@ class AllCardsTVCell: UITableViewCell {
     //4
     @IBOutlet weak var FrontView: UIView!
        @IBAction func flipAction(_ sender: Any) {
-        self.flipAnimation()
+//        self.flipAnimation()
+        didFlip()
     
    }
     
-    var isFlipped = false
-    func flipAnimation()
-    {
-        if (!isFlipped){
-            UIView.transition(with: FrontView, duration: 1, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-            PostImage.image = UIImage(named: "ststistics")
-            isFlipped = true
-        }else{
-            UIView.transition(with: FrontView, duration: 1, options: .transitionFlipFromRight, animations: nil, completion: nil)
-            PostImage.image = UIImage(named: "ME")
-            isFlipped = false
-        }
-        
-        
-    
-    }
+//    var isFlipped = false
+//    func flipAnimation()
+//    {
+//        if (!isFlipped){
+//            UIView.transition(with: FrontView, duration: 1, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+//            PostImage.image = UIImage(named: "ststistics")
+//            isFlipped = true
+//        }else{
+//            UIView.transition(with: FrontView, duration: 1, options: .transitionFlipFromRight, animations: nil, completion: nil)
+//            PostImage.image = UIImage(named: "ME")
+//            isFlipped = false
+//        }
+//
+//
+//
+//    }
 
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -144,6 +145,7 @@ class AllCardsTVCell: UITableViewCell {
         didDelete()
     }
     var didDelete: () -> ()  = { }
+    var didFlip: () -> ()  = { }
 
     
 }

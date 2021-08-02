@@ -40,6 +40,8 @@ struct Data : Codable {
     let user : User?
     let user_liked : Int?
     let user_reported : Int?
+    let likes : Int?
+    let reports : Int?
     let created_at : String?
     let updated_at : String?
     
@@ -53,6 +55,8 @@ struct Data : Codable {
         case user = "user"
         case user_liked = "user_liked"
         case user_reported = "user_reported"
+        case likes = "likes"
+        case reports = "reports"
         case created_at = "created_at"
         case updated_at = "updated_at"
     }
@@ -67,6 +71,8 @@ struct Data : Codable {
         user = try values.decodeIfPresent(User.self, forKey: .user)
         user_liked = try values.decodeIfPresent(Int.self, forKey: .user_liked)
         user_reported = try values.decodeIfPresent(Int.self, forKey: .user_reported)
+        likes = try values.decodeIfPresent(Int.self, forKey: .likes)
+        reports = try values.decodeIfPresent(Int.self, forKey: .reports)
         created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
         updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
     }

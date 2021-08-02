@@ -9,27 +9,9 @@ import UIKit
 
 class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , favourtDelegate {
     
-    // delete cell in collection
-   
-         func DeleteFavourite(value: String) {
-        for data in self.FavListArr {
-            if data == value {
-                self.FavListArr = self.FavListArr.filter{$0 != data}
-                self.collectionViewOut.reloadData()
-            }
-        }
-    }
-    
-    let favouriteCellObject = favouriteCell()
-    var clicked = true
-    @IBAction func aditBtn(_ sender: Any) {
-        clicked =  !clicked
-        collectionViewOut.reloadData()
-    
-    }
-    
-    
-    
+    var comeFrome = ""
+    var categortData : [CategoriesModel.Data]?
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionsetup()
@@ -48,7 +30,8 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FavListArr.count+1
+        return categortData?.count ?? 0 + 1
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
@@ -67,8 +50,9 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
             return cell0
         } else {
             cell.delegate = self
-            cell.FavNameLA.text = FavListArr[indexPath.row-1]
-            cell.index = FavListArr[indexPath.row-1]
+//            cell.FavNameLA.text = FavListArr[indexPath.row-1]
+            cell.FavNameLA.text = categortData![indexPath.row-1].name
+//            cell.index = categortData[indexPath.row-1]
             
             return cell
             
@@ -95,9 +79,49 @@ class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionView
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    // delete cell in collection
+   
+         func DeleteFavourite(value: String) {
+        for data in self.FavListArr {
+            if data == value {
+                self.FavListArr = self.FavListArr.filter{$0 != data}
+                self.collectionViewOut.reloadData()
+            }
+        }
+    }
+    
+    let favouriteCellObject = favouriteCell()
+    var clicked = true
+    @IBAction func aditBtn(_ sender: Any) {
+        clicked =  !clicked
+        collectionViewOut.reloadData()
+    
+    }
+    
+    func getCategories(){
+        API.getCategories(lang: "en") { result, err in
+            if result?.data != nil && result?.data?.isEmpty == false {
+                if let postsArr = result?.data {
+                    self.categortData = postsArr
+                    
+                    print(self.categortData! )
+                    self.collectionViewOut.reloadData()
+//                        if type == "refresh"{
+//                            self.refreshcontrol.endRefreshing()
+//                        }
+//                    HUD.hide()
+                }
+            }
+        }
+    }
+    
+    
     
     @IBAction func BackBtnPressed(_ sender: Any) {
+        if comeFrome == "addToFavourite" {
         self.dismiss(animated: true, completion: nil)
+        } else if comeFrome == "showFavourites" {self.navigationController?.popViewController(animated: true)
+    }
     }
     
     

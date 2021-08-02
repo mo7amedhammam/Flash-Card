@@ -12,6 +12,7 @@
 		9007A3FF2649344000DE91E4 /* notificationCardCVcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007A3FD2649344000DE91E4 /* notificationCardCVcell.xib */; };
 		900F60742652CCF0002DB03D /* splashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F60732652CCF0002DB03D /* splashScreenVC.swift */; };
 		901762AD266566D50023CB61 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901762AC266566D50023CB61 /* PostModel.swift */; };
+		901ECB8B26B80CE400452E50 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901ECB8A26B80CE400452E50 /* CategoriesModel.swift */; };
 		901FA516265AAFC5004D0283 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FA515265AAFC5004D0283 /* HomeTabBar.swift */; };
 		9033B59B2643F74C00D2E9DD /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033B59A2643F74C00D2E9DD /* RoundedImage.swift */; };
 		9033B5A82644182400D2E9DD /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033B5A72644182400D2E9DD /* NotificationsVC.swift */; };
@@ -112,6 +113,7 @@
 		9007A3FD2649344000DE91E4 /* notificationCardCVcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = notificationCardCVcell.xib; sourceTree = "<group>"; };
 		900F60732652CCF0002DB03D /* splashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashScreenVC.swift; sourceTree = "<group>"; };
 		901762AC266566D50023CB61 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		901ECB8A26B80CE400452E50 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		901FA515265AAFC5004D0283 /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		9033B59A2643F74C00D2E9DD /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		9033B5A72644182400D2E9DD /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				901762AC266566D50023CB61 /* PostModel.swift */,
 				90C34DD6269276B0001302AB /* LoginResponse.swift */,
 				9089DD4E269DAEFD0023E3B4 /* LogOutModel.swift */,
+				901ECB8A26B80CE400452E50 /* CategoriesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1022,6 +1025,7 @@
 				90EC2B83261C5E3800E58E5A /* AllCardsTVCell.swift in Sources */,
 				90C34DE8269285C8001302AB /* APIRouter.swift in Sources */,
 				9089DD4F269DAEFD0023E3B4 /* LogOutModel.swift in Sources */,
+				901ECB8B26B80CE400452E50 /* CategoriesModel.swift in Sources */,
 				90C34DD7269276B0001302AB /* LoginResponse.swift in Sources */,
 				90D59B95261DEDF500F98DAF /* ResetPassword.swift in Sources */,
 				90A9B5F32623188A00434F43 /* SignOutVC.swift in Sources */,

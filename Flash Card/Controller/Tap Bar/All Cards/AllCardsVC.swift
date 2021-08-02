@@ -12,6 +12,8 @@ import PKHUD
 class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var postData : [Data]?
     var cellsNumber = 5
+    var isFlipped = false
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postData?.count ?? 0 + 1
@@ -25,13 +27,47 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCardsTVCell0") as! AllCardsTVCell
             //setCardView(view: cell.StatusorImageV)
             cell.delegate = self
+            Helper.SetImage(EndPoint: Helper.getprofile_img(), image: cell.headerImage, name: "person.fill", status: 1)
+
             return cell
         } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCardsTVCell") as! AllCardsTVCell
-            cell.cellMainLabel.text = "\(postData?[indexPath.row-1].user?.fName ?? "")+\(postData?[indexPath.row-1].user?.lName ?? "")"
+            cell.delegate = self
+            cell.cellMainLabel.text = (postData?[indexPath.row-1].user?.fName)! + " " + (postData?[indexPath.row-1].user?.lName)!
             cell.TimeLabel.text = postData?[indexPath.row-1].created_at
+//            cell.PostLa.text = postData?[indexPath.row-1].front_text
+            Helper.SetImage(EndPoint: postData?[indexPath.row-1].user?.profile_img, image: cell.cellImage, name: "person.fill", status: 1)
+
+            if postData?[indexPath.row-1].user_liked == 1 {
+                cell.StarBuOutlet.isSelected = true
+            }
+  
+            cell.PostLa.text = postData?[indexPath.row-1].front_text
+            Helper.SetImage(EndPoint: postData?[indexPath.row-1].front_img, image: cell.PostImage, name: "ME", status: 1)
             
+            cell.didFlip = { [self] in
+                if (!isFlipped){
+                    UIView.transition(with: cell.FrontView, duration: 1, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+                    cell.PostLa.text = postData?[indexPath.row-1].front_text
+                    Helper.SetImage(EndPoint: postData?[indexPath.row-1].front_img, image: cell.PostImage, name: "ME", status: 1)
+//                    cell.PostImage.image = UIImage(named: "ststistics")
+//                    isFlipped = true
+                }else{
+                    UIView.transition(with: cell.FrontView, duration: 1, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                    cell.PostLa.text = postData?[indexPath.row-1].back_text
+                    Helper.SetImage(EndPoint: postData?[indexPath.row-1].back_img, image: cell.PostImage, name: "ME", status: 1)
+//                    cell.PostImage.image = UIImage(named: "ME")
+//                    isFlipped = false
+                }
+                isFlipped = !isFlipped
+            }
             
+            //Handling image and text
+            if postData?[indexPath.row-1].front_text == nil || postData?[indexPath.row-1].front_text == ""{
+                cell.PostLa.isHidden = true
+            } else if postData?[indexPath.row-1].front_img == nil || postData?[indexPath.row-1].front_img == ""{
+                cell.PostImage.isHidden = true
+            }
             
             
             
@@ -87,6 +123,12 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    @IBAction func btnGoToCategories(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "FavouritesVC") as! FavouritesVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     //    // Override to support editing the table view.
     //         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     //        {
@@ -113,11 +155,8 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func refreshingfunction()  {
         DispatchQueue.main.async {
             self.postData?.removeAll()
-            self.getPost(type: "refresh")
+            self.getPosts(type: "refresh")
         }
-//        chekNetworkThenReloadData()
-        
-//        refreshcontrol.endRefreshing()
     }
     
     override func viewDidLoad() {
@@ -126,7 +165,6 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationItem.title = "All Cards"
         allCardsTVOutlet.dataSource = self
         allCardsTVOutlet.delegate = self
-        chekNetworkThenReloadData()
         addRefreshControl()
         getPosts(type: "loadData")
     }
@@ -135,23 +173,8 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         getPosts(type: "loadData")
     }
     
-    func chekNetworkThenReloadData() {
-        if Reachable.isConnectedToNetwork(){
-            //good Connection data looks Good -> Load it
-            allCardsTVOutlet.reloadData()
-            
-            // good connection but no data -> Server Error
-            if cellsNumber == 0{
-                //            if posttextarray.count == 0{
-                serverErrorAlert(controller: self)
-            }
-        }else{
-            //   -> Network ConncetionError
-            connectionErrorAlert(controller: self)
-            showAlert(message: "Please Check your Internet Connection", title: "Network Error", buttonTitle: "OK")
-        }
-        
-    }
+    
+    
     
     
     // -----------------------------------------------------
@@ -160,7 +183,6 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getPosts(type : String){
         if type == "refresh"{
             self.refreshcontrol.beginRefreshing()
-           // postData?.removeAll()
             self.allCardsTVOutlet.reloadData()
 
         }else{
@@ -170,7 +192,8 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if result?.data != nil && result?.data?.isEmpty == false {
                 if let postsArr = result?.data {
                     self.postData = postsArr
-                    print(self.postData ?? [])
+                    
+                    print(self.postData! )
                     self.allCardsTVOutlet.reloadData()
                         if type == "refresh"{
                             self.refreshcontrol.endRefreshing()

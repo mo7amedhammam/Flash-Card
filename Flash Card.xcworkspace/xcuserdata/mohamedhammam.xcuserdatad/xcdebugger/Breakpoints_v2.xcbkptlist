@@ -7,80 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ADD71E90-E2AC-4F85-880A-11B5A5E9768C"
+            uuid = "AB7F5C07-5CF0-413E-91E4-D41513A6CF53"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flash Card/Services/API.swift"
+            filePath = "Flash Card/Controller/Tap Bar/All Cards/gotoCreatNewCard/CreatNewCardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "userLogOut(completion:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "addCard(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2249D503-E911-401F-82BA-B830FE05543F"
+            uuid = "6E02E191-A5E6-4891-85AE-2220455E5F2C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flash Card/Services/API.swift"
+            filePath = "Flash Card/Controller/Tap Bar/All Cards/gotoCreatNewCard/CreatNewCardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "userLogOut(completion:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "addCard(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "96275437-CDF2-455D-B346-23C73744A222"
+            uuid = "847E7A3D-CC05-4FE6-90D3-8B35AC9C37F0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flash Card/Services/API.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "userLogOut(completion:)"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "addPost(lang:front_text:back_text:arrImage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ACDA7197-C067-4F2A-9843-90A31F8B3A16"
+            uuid = "C8ADFD9D-BDE9-4476-9CC2-FC706D2473F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flash Card/Services/API.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "getPosts(lang:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "17D8CD95-AF22-4EAC-BEE5-13B88AD3088C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Flash Card/Services/APIRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "asURLRequest()"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "addPost(lang:front_text:back_text:arrImage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

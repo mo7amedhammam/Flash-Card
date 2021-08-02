@@ -9,32 +9,33 @@ import UIKit
 import SystemConfiguration
 import MapKit
 import Foundation
+import Kingfisher
 
 
 class Helper: NSObject {
     
         
-    class func setUserData( id : String , user_type : String , fName : String ,lName : String ,type : String , address : String , profile_img : String ,  cover_img : String , university : String , username : String , email : String , mobile : String , gender : String, joined_at : String , token : String , email_verified : Int , mobile_verified : Int , del_schedule : String , account_status : String ){
+    class func setUserData( id : String , user_type : String , fName : String ,lName : String , address : String , profile_img : String ,  cover_img : String , university : String , username : String , email : String , mobile : String , gender : String, joined_at : String , token : String , email_verified : Int , mobile_verified : Int , del_schedule : String , account_status : String ){
         let def = UserDefaults.standard
         
-        def.setValue(id              , forKey: "id")
-        def.setValue(user_type       , forKey: "user_type")
-        def.setValue(fName           , forKey: "fName")
-        def.setValue(lName           , forKey: "lName")
-        def.setValue(address         , forKey: "address")
-        def.setValue(profile_img     , forKey: "profile_img")
-        def.setValue(cover_img       , forKey: "cover_img")
-        def.setValue(university      , forKey: "university")
-        def.setValue(username        , forKey: "username")
-        def.setValue(email           , forKey: "email")
-        def.setValue(mobile          , forKey: "mobile")
-        def.setValue(gender          , forKey: "gender")
-        def.setValue(joined_at       , forKey: "joined_at")
-        def.setValue(token           , forKey: "token")
-        def.setValue(email_verified  , forKey: "email_verified")
-        def.setValue(mobile_verified , forKey: "mobile_verified")
-        def.setValue(del_schedule    , forKey: "del_schedule")
-        def.setValue(account_status  , forKey: "account_status")
+        def.setValue(id                    , forKey: "id")
+        def.setValue(user_type             , forKey: "user_type")
+        def.setValue(fName                 , forKey: "fName")
+        def.setValue(lName                 , forKey: "lName")
+        def.setValue(address               , forKey: "address")
+        def.setValue(profile_img           , forKey: "profile_img")
+        def.setValue(cover_img             , forKey: "cover_img")
+        def.setValue(university            , forKey: "university")
+        def.setValue(username              , forKey: "username")
+        def.setValue(email                 , forKey: "email")
+        def.setValue(mobile                , forKey: "mobile")
+        def.setValue(gender                , forKey: "gender")
+        def.setValue(joined_at             , forKey: "joined_at")
+        def.setValue("Bearer " + token      , forKey: "token")
+        def.setValue(email_verified        , forKey: "email_verified")
+        def.setValue(mobile_verified       , forKey: "mobile_verified")
+        def.setValue(del_schedule          , forKey: "del_schedule")
+        def.setValue(account_status        , forKey: "account_status")
         
         def.synchronize()
         //        restartApp()
@@ -144,18 +145,18 @@ class Helper: NSObject {
     
     //
     
-    //save image
-    class func setProfileImage(image : String){
-        let def = UserDefaults.standard
-        def.setValue(image, forKey: "profileImage")
-        def.synchronize()
-    }
-    
-    
-    class func getProfileImage() ->String {
-        let def = UserDefaults.standard
-        return (def.object(forKey: "profileImage") as! String)
-    }
+//    //save image
+//    class func setProfileImage(image : String){
+//        let def = UserDefaults.standard
+//        def.setValue(image, forKey: "profileImage")
+//        def.synchronize()
+//    }
+//    
+//    
+//    class func getProfileImage() ->String {
+//        let def = UserDefaults.standard
+//        return (def.object(forKey: "profileImage") as! String)
+//    }
     
     
     //
@@ -212,9 +213,9 @@ class Helper: NSObject {
     
     class func SetImage (EndPoint : String? , image : UIImageView , name : String , status : Int) {
             // status == 0 system  else 1 named
-            if !EndPoint!.isEmpty || EndPoint != nil {
-                let url = URL(string: "http://flashbook.pina-app.com" + EndPoint!)
-                    image.kf.indicatorType = .activity
+            if EndPoint != nil || EndPoint == "" {
+                let url = URL(string: URLs.BaseUrl + EndPoint!)
+                image.kf.indicatorType = .activity
                     image.kf.setImage(with: url)
                 } else {
                     if status == 0 {

@@ -9,7 +9,7 @@ import Foundation
 
 struct URLs {
     
-    static let BaseUrl = "http://flashbook.pina-app.com"
+    static let BaseUrl = "http://flashbook.pina-app.com/"
     
     ///Post > Body > fName - lName - gender - username - mobile - email - password - password_confirmation
     /// parameter ["lang" : en]
