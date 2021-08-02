@@ -13,13 +13,13 @@ import SwiftyJSON
 extension API {
     
    
-    class func  GetAllPosts (  completion : @escaping (_ error : Error? ,_ Inbody : [ModelAllUser]? , _ message : String? ) ->Void) {
+    class func  S_GetAllPosts (  completion : @escaping (_ error : Error? ,_ Inbody : [ModelAllUser]? , _ message : String? ) ->Void) {
         
         let url = URLs.AllUser
               
-        let header : [String : HTTPHeader] = [ "content-type" : "application/json"  , "Authorization" : Helper.gettoken() ]
+        let header  = [ "content-type" : "application/json"  , "Authorization" : Helper.gettoken() ]
         
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: header)
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: header)
             .validate(statusCode: 200..<500)
             .responseJSON{ response in
                 switch response.result {
@@ -29,29 +29,27 @@ extension API {
                     let json = JSON(value)
                     print(json)
                     
-                    let jsonPosts        = json["Response"]
-                    var inbodyArr        = [PostModel]()
-                    var ArrComment       = [CommentsModel]()
+                    let jsonPosts        = json["data"]
+                    var inbodyArr        = [ModelAllUser]()
                     
                     
                     guard let inbody = jsonPosts.array else {
-                        completion(nil,nil , json["Message"].string ?? "" )
+                        completion(nil,nil , json["message"].string ?? "" )
                         return
                     }
                     for data in inbody {
                    
-                        let object = PostModel( Title : data["Title"].string ?? "" , Detailes :  data["Detailes"].string ?? ""  , CreationDate :  data["CreationDate"].string ?? "" ,  CreationTime:  data["CreationTime"].string ?? "" , Id: data["Id"].int ?? 0, text:  data["text"].string ?? "" , Image: data["Image"].string ?? "", UserId: data["UserId"].string ?? "", UserImage: data["UserImage"].string ?? "", IsPinPost: data["IsPinPost"].bool ?? false, FirstName: data["FirstName"].string ?? "", IsFavoritePost: data["IsFavoritePost"].bool ?? false, ReactType: data["ReactType"].int ?? 0 , ReactCount: data["ReactCount"].int ?? 0 , PinTime : data["PinTime"].string ?? "" , Comments: ArrComment)
+                        let object = ModelAllUser(id: data["id"].int ?? 0 , user_type:  data["user_type"].string ?? "" , fName: data["fName"].string ?? "" , lName: data["lName"].string ?? "" , profile_img: data["profile_img"].string ?? "" , followers:  data["followers"].int ?? 0 , is_follower:  data["is_follower"].int ?? 0 )
                         
                         inbodyArr.append(object)
-                        ArrComment.removeAll()
                     }
                     print("..json....\(inbodyArr)")
-                    completion(nil , inbodyArr , json["Message"].string ?? "")
+                    completion(nil , inbodyArr , json["message"].string ?? "")
                 }
             }
     }
-    
-    
+ 
+
     
     
     

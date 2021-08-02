@@ -125,12 +125,12 @@ class AllCardsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // good connection but no data -> Server Error
             if cellsNumber == 0{
                 //            if posttextarray.count == 0{
-                serverErrorAlert(controller: self)
+                AlertServerError(controller: self)
             }
         }else{
             //   -> Network ConncetionError
-            connectionErrorAlert(controller: self)
-            showAlert(message: "Please Check your Internet Connection", title: "Network Error", buttonTitle: "OK")
+            AlertInternet(controller: self)
+            showAlert(message: "Please Check your Internet Connection", title: "Network Error")
         }
         
     }

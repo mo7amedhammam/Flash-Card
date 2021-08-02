@@ -55,16 +55,16 @@ class Login: UIViewController {
 //        print("------ login -----")
         if Reachable.isConnectedToNetwork() {
             if TFEmail.text!.isEmpty  || Helper.isValidEmail(emailStr: TFEmail.text!) == false {
-                showAlert(message: "Please Enter Valid Email", buttonTitle: "OK")
+                showAlert(message: "Please Enter Valid Email")
             } else if TFPassword.text!.isEmpty {
-                    showAlert(message: "Please Enter Your Password", buttonTitle: "OK")
+                    showAlert(message: "Please Enter Your Password")
             }else{
                // your code
             login(email: TFEmail.text!, password: TFPassword.text!)
             }
         } else {
             // no internet
-            showAlert(message: "No Internet Connection", buttonTitle: "OK")
+            showAlert(message: "No Internet Connection" )
         }
     }
     
@@ -72,21 +72,21 @@ class Login: UIViewController {
     
    // var loginmodel = LoginModel?
     func login(email:String , password:String)  {
-        if Reachable.isConnectedToNetwork(){
-                API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!, lang: "en") { (success,result,error) in
-            if success {
-
-                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
-     
-                self.moveToHomeTab()
-                
-            }else{
-                HUD.flash(.label(result?.message), delay:  2.0)
-            }
-        }
-            }else{
-                HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
-            }
+//        if Reachable.isConnectedToNetwork(){
+//                API.userLogin(Email: TFEmail.text!, Password: TFPassword.text!, lang: "en") { (success,result,error) in
+//            if success {
+//
+//                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
+//
+//                self.moveToHomeTab()
+//
+//            }else{
+//                HUD.flash(.label(result?.message), delay:  2.0)
+//            }
+//        }
+//            }else{
+//                HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
+//            }
         }
     
     func moveToHomeTab (){

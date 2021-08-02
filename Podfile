@@ -8,11 +8,16 @@ target 'Flash Card' do
   # Pods for Flash Card
 
 pod 'IQKeyboardManagerSwift' , '6.5.6'
-pod 'Alamofire' , '5.4.3'
-pod 'SwiftyJSON' 
-#pod 'sincs'
+pod 'SwiftyJSON'
 pod 'PKHUD', '5.3.0'
 pod 'ImageViewer.swift' , '3.3.3'
+pod 'Alamofire', '4.9.1'
+pod 'Kingfisher'
+pod 'MOLH'
+
+
+
+
 
 
 

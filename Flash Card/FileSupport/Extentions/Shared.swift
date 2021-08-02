@@ -8,7 +8,9 @@
 import Foundation
 
 final class Shared {
+    
     static let shared = Shared()
+    var lang : String!
     var logedin = 0
   
 

@@ -45,23 +45,23 @@ class CreatNewUser: UIViewController {
     @IBAction func BuSignUp(_ sender: Any) {
         
         if TFFname.text!.isEmpty{
-            showAlert(message: "enter your first name", buttonTitle: "OK")
+            showAlert(message: "enter your first name")
           }else if TFLname.text!.isEmpty{
-          showAlert(message: "enter your last name", buttonTitle: "OK")
+          showAlert(message: "enter your last name")
           }else if TFUserName.text!.isEmpty{
-            showAlert(message: "enter user name", buttonTitle: "OK")
+            showAlert(message: "enter user name")
           }else if TFEmail.text!.isEmpty  || !Helper.isValidEmail(emailStr: TFEmail.text!) {
-            showAlert(message: "enter a valid e-mail", buttonTitle: "OK")
+            showAlert(message: "enter a valid e-mail")
           }else if TFMobileNumber.text!.isEmpty{
-            showAlert(message: "enter your mobile number", buttonTitle: "OK")
+            showAlert(message: "enter your mobile number")
           }else if TFGender.text!.isEmpty{
-            showAlert(message: "gender is not selected", buttonTitle: "OK")
+            showAlert(message: "gender is not selected")
           }else if TFPassword.text!.count < 8 {
-            showAlert(message: "enter 8 characters password", buttonTitle: "OK")
+            showAlert(message: "enter 8 characters password")
           }else if TFPassword.text != TFPasswordConfirm.text {
-            showAlert(message: "password not match", buttonTitle: "OK")
+            showAlert(message: "password not match")
           }else if !BtnAgreeTermsOutlet.isSelected  {
-            showAlert(message: "agree app terms", buttonTitle: "OK")
+            showAlert(message: "agree app terms")
           }else{
             print( TFPassword.text!)
             print( TFPasswordConfirm.text!)
@@ -73,21 +73,21 @@ class CreatNewUser: UIViewController {
     
     func CreatUser(fName: String?, lName: String?, gender: String?, username: String?, mobile: String?, email: String?, password: String?, password_confirmation: String?, lang: String?)  {
       
-        if Reachable.isConnectedToNetwork(){
-            API.userRegister(fName: fName!, lName: lName!, gender: gender!, username: username!, mobile: mobile!, email: email!, password: password!, password_confirmation: password_confirmation!, lang: lang!){ (success,result,error) in
-            if success {
-                
-                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
-                self.moveToHomeTab()
-
-            }else {
-                HUD.flash(.label(result?.message), delay:  2.0)
-            }
-        }
-        }else{
-            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
-
-        }
+//        if Reachable.isConnectedToNetwork(){
+//            API.userRegister(fName: fName!, lName: lName!, gender: gender!, username: username!, mobile: mobile!, email: email!, password: password!, password_confirmation: password_confirmation!, lang: lang!){ (success,result,error) in
+//            if success {
+//                
+//                Helper.settoken(token: "Bearer "+(result?.data?.token)!)
+//                self.moveToHomeTab()
+//
+//            }else {
+//                HUD.flash(.label(result?.message), delay:  2.0)
+//            }
+//        }
+//        }else{
+//            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
+//
+//        }
     }
     func moveToHomeTab (){
         let vc = storyboard?.instantiateViewController(identifier: "HomeTabBar") as! HomeTabBar

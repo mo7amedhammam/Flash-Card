@@ -47,7 +47,7 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
             alert.addAction(UIAlertAction(title: "Edit Post" , style: .default, handler: { [self] (action) in
                 // action Here
-                self.simpleErrorAlert(errorTilte: "Success Edit", errorBody: "", buttonTitle: "OK")
+//                self.simpleErrorAlert(errorTilte: "Success Edit", errorBody: "", buttonTitle: "OK")
                 //            self.determineMyCurrentLocation()
             }))
 

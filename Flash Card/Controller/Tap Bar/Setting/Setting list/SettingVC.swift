@@ -97,23 +97,23 @@ class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func logutAction()  {
-        if Reachable.isConnectedToNetwork(){
-        API.userLogOut() { (success, result, message) in
-            if success {
-                
-                Helper.logout()
-                self.navigationController?.popToRootViewController(animated: true)
-                
-            }else {
-                HUD.flash(.label(result?.message), delay:  2.0)
-                print(message!)
-            }
-        }
-        
-        }else{
-            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
-
-        }
+//        if Reachable.isConnectedToNetwork(){
+//        API.userLogOut() { (success, result, message) in
+//            if success {
+//
+//                Helper.logout()
+//                self.navigationController?.popToRootViewController(animated: true)
+//
+//            }else {
+//                HUD.flash(.label(result?.message), delay:  2.0)
+//                print(message!)
+//            }
+//        }
+//
+//        }else{
+//            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
+//
+//        }
     }
     
     

@@ -3657,7 +3657,7 @@
                                                                 <rect key="frame" x="0.0" y="265" width="414" height="122"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="8hX-6K-S2X" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="Flash_Card" customModuleProvider="target">
-                                                                        <rect key="frame" x="43" y="2.5" width="328" height="41.5"/>
+                                                                        <rect key="frame" x="43" y="13" width="328" height="21"/>
                                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -3679,7 +3679,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="S2u-gZ-Rac" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="Flash_Card" customModuleProvider="target">
-                                                                        <rect key="frame" x="43" y="69.5" width="328" height="41.5"/>
+                                                                        <rect key="frame" x="43" y="80" width="328" height="21"/>
                                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -4111,52 +4111,52 @@
     </scenes>
     <designables>
         <designable name="2Wn-Tb-7B2">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="95" height="25.5"/>
         </designable>
         <designable name="7Pq-op-w7u">
             <size key="intrinsicContentSize" width="965" height="1280"/>
         </designable>
         <designable name="8hX-6K-S2X">
-            <size key="intrinsicContentSize" width="328" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="72.5" height="21"/>
         </designable>
         <designable name="9EQ-pG-TAO">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="98" height="25.5"/>
         </designable>
         <designable name="E5m-6e-9Np">
-            <size key="intrinsicContentSize" width="384" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="70" height="20"/>
         </designable>
         <designable name="F9s-55-cgk">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="160" height="24"/>
         </designable>
         <designable name="S2u-gZ-Rac">
-            <size key="intrinsicContentSize" width="328" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="101" height="21"/>
         </designable>
         <designable name="TU4-zJ-sS1">
-            <size key="intrinsicContentSize" width="334" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="39" height="21"/>
         </designable>
         <designable name="ZVj-aG-fDC">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="122" height="25.5"/>
         </designable>
         <designable name="b9o-t2-jfI">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="65.5" height="25.5"/>
         </designable>
         <designable name="d90-3Q-EcT">
             <size key="intrinsicContentSize" width="965" height="1280"/>
         </designable>
         <designable name="gc4-P9-7Fp">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="135" height="25.5"/>
         </designable>
         <designable name="j0T-4y-RcF">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="94" height="25.5"/>
         </designable>
         <designable name="mUp-uc-pAh">
             <size key="intrinsicContentSize" width="965" height="1280"/>
         </designable>
         <designable name="oyC-3H-9Xw">
-            <size key="intrinsicContentSize" width="384" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="39" height="21"/>
         </designable>
         <designable name="rBJ-5n-fSU">
-            <size key="intrinsicContentSize" width="374" height="46.380859375"/>
+            <size key="intrinsicContentSize" width="85" height="24"/>
         </designable>
     </designables>
     <resources>

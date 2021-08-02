@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04CFA6AB26B82447004C796D /* ModelAllUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6AA26B82447004C796D /* ModelAllUser.swift */; };
 		04CFA6B026B82780004C796D /* Api+AllUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6AF26B82780004C796D /* Api+AllUser.swift */; };
+		04CFA6D426B82F7F004C796D /* EXTAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6D326B82F7F004C796D /* EXTAlert.swift */; };
+		04CFA6F526B831BA004C796D /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6F426B831BA004C796D /* ProgressHud.swift */; };
+		04CFA6FA26B831EA004C796D /* SalmanLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6F926B831EA004C796D /* SalmanLocalize.swift */; };
+		04CFA6FF26B8327D004C796D /* ExtentionLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6FE26B8327D004C796D /* ExtentionLocalize.swift */; };
 		05C7C1AEB7F8203FE5FD64CD /* Pods_Flash_Card_Flash_CardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B984210F598BCE7007182 /* Pods_Flash_Card_Flash_CardUITests.framework */; };
 		9007A3FE2649344000DE91E4 /* notificationCardCVcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9007A3FC2649344000DE91E4 /* notificationCardCVcell.swift */; };
 		9007A3FF2649344000DE91E4 /* notificationCardCVcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007A3FD2649344000DE91E4 /* notificationCardCVcell.xib */; };
@@ -74,7 +78,6 @@
 		90E1327A261B1743005D63AC /* MemoriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E13279261B1743005D63AC /* MemoriaUITests.swift */; };
 		90E13293261B20DA005D63AC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E13292261B20DA005D63AC /* Style.swift */; };
 		90E1329B261B2148005D63AC /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E1329A261B2148005D63AC /* Shared.swift */; };
-		90E132A3261B216D005D63AC /* EXTAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E132A2261B216D005D63AC /* EXTAlert.swift */; };
 		90E132A8261B218B005D63AC /* EXTEnternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E132A7261B218B005D63AC /* EXTEnternet.swift */; };
 		90E132B0261B24B0005D63AC /* CreatNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E132AF261B24B0005D63AC /* CreatNewUser.swift */; };
 		90EC2B7D261C5D9F00E58E5A /* AllCardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EC2B7C261C5D9F00E58E5A /* AllCardsVC.swift */; };
@@ -105,6 +108,10 @@
 /* Begin PBXFileReference section */
 		04CFA6AA26B82447004C796D /* ModelAllUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAllUser.swift; sourceTree = "<group>"; };
 		04CFA6AF26B82780004C796D /* Api+AllUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Api+AllUser.swift"; sourceTree = "<group>"; };
+		04CFA6D326B82F7F004C796D /* EXTAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EXTAlert.swift; sourceTree = "<group>"; };
+		04CFA6F426B831BA004C796D /* ProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
+		04CFA6F926B831EA004C796D /* SalmanLocalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalmanLocalize.swift; sourceTree = "<group>"; };
+		04CFA6FE26B8327D004C796D /* ExtentionLocalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentionLocalize.swift; sourceTree = "<group>"; };
 		16F66B5EFECFC56A23D5E75B /* Pods-Flash Card-Flash CardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Card-Flash CardUITests.release.xcconfig"; path = "Target Support Files/Pods-Flash Card-Flash CardUITests/Pods-Flash Card-Flash CardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		28759CD2A2C15450B4FF818E /* Pods-Flash Card.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Card.debug.xcconfig"; path = "Target Support Files/Pods-Flash Card/Pods-Flash Card.debug.xcconfig"; sourceTree = "<group>"; };
 		67598A304A9DF721B60467EA /* Pods_Flash_CardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_CardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,7 +188,6 @@
 		90E1327B261B1743005D63AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90E13292261B20DA005D63AC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		90E1329A261B2148005D63AC /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
-		90E132A2261B216D005D63AC /* EXTAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXTAlert.swift; sourceTree = "<group>"; };
 		90E132A7261B218B005D63AC /* EXTEnternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXTEnternet.swift; sourceTree = "<group>"; };
 		90E132AF261B24B0005D63AC /* CreatNewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatNewUser.swift; sourceTree = "<group>"; };
 		90EC2B7C261C5D9F00E58E5A /* AllCardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsVC.swift; sourceTree = "<group>"; };
@@ -630,9 +636,12 @@
 			children = (
 				90715922265D350500995E45 /* Helper.swift */,
 				90715928265D363300995E45 /* CheckConnection.swift */,
+				04CFA6FE26B8327D004C796D /* ExtentionLocalize.swift */,
+				04CFA6F926B831EA004C796D /* SalmanLocalize.swift */,
+				04CFA6F426B831BA004C796D /* ProgressHud.swift */,
 				90E13292261B20DA005D63AC /* Style.swift */,
 				90E1329A261B2148005D63AC /* Shared.swift */,
-				90E132A2261B216D005D63AC /* EXTAlert.swift */,
+				04CFA6D326B82F7F004C796D /* EXTAlert.swift */,
 				90E132A7261B218B005D63AC /* EXTEnternet.swift */,
 				90D59BC6261E048100F98DAF /* UITableView+Extensions.swift */,
 				90CA7634262EF3F300A14331 /* UiCollectionView+Extension.swift */,
@@ -999,6 +1008,7 @@
 				90D59BC7261E048100F98DAF /* UITableView+Extensions.swift in Sources */,
 				90715929265D363300995E45 /* CheckConnection.swift in Sources */,
 				90D59BB9261E016300F98DAF /* AllPeopleCell.swift in Sources */,
+				04CFA6F526B831BA004C796D /* ProgressHud.swift in Sources */,
 				909922D3263EB606003C040D /* FavouritesVC.swift in Sources */,
 				90E1329B261B2148005D63AC /* Shared.swift in Sources */,
 				90FABD0D264016AB008700D5 /* favouriteCell.swift in Sources */,
@@ -1020,8 +1030,10 @@
 				90CA763B262EF4C000A14331 /* NewCardImageCVCell.swift in Sources */,
 				90346D83261F4D5400A9A058 /* SettingTVCell.swift in Sources */,
 				90A9B5ED2623186600434F43 /* RateAppVC.swift in Sources */,
+				04CFA6D426B82F7F004C796D /* EXTAlert.swift in Sources */,
 				906B13802691ED39005A7B33 /* API.swift in Sources */,
 				901FA516265AAFC5004D0283 /* HomeTabBar.swift in Sources */,
+				04CFA6FA26B831EA004C796D /* SalmanLocalize.swift in Sources */,
 				90EC2B83261C5E3800E58E5A /* AllCardsTVCell.swift in Sources */,
 				90C34DE8269285C8001302AB /* APIRouter.swift in Sources */,
 				90C34DD7269276B0001302AB /* LoginResponse.swift in Sources */,
@@ -1031,10 +1043,10 @@
 				906B137B2691D845005A7B33 /* Config.swift in Sources */,
 				90A9B5DE2623181D00434F43 /* ContactUsVC.swift in Sources */,
 				90CA7635262EF3F300A14331 /* UiCollectionView+Extension.swift in Sources */,
+				04CFA6FF26B8327D004C796D /* ExtentionLocalize.swift in Sources */,
 				90E13293261B20DA005D63AC /* Style.swift in Sources */,
 				905BA48B262C482D00FBB34C /* InnerGroupCell.swift in Sources */,
 				90AD0BE126481FE9006FB0EA /* NotificationCardsVC.swift in Sources */,
-				90E132A3261B216D005D63AC /* EXTAlert.swift in Sources */,
 				04CFA6B026B82780004C796D /* Api+AllUser.swift in Sources */,
 				9090032E26285B65002F0D95 /* CreatNewCardVC.swift in Sources */,
 				90E1325A261B173D005D63AC /* SceneDelegate.swift in Sources */,
