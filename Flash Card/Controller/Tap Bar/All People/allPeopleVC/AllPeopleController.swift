@@ -150,8 +150,8 @@ extension AllPeopleController :  UITableViewDelegate, UITableViewDataSource , Fo
         return 120
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
     
 }

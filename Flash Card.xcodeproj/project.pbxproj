@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04BAD11926B95FD700811465 /* API+Favourit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD11826B95FD700811465 /* API+Favourit.swift */; };
+		04BAD11E26B960DF00811465 /* ModelAllFavourit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD11D26B960DF00811465 /* ModelAllFavourit.swift */; };
 		04CFA6AB26B82447004C796D /* ModelAllUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6AA26B82447004C796D /* ModelAllUser.swift */; };
 		04CFA6B026B82780004C796D /* Api+AllUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6AF26B82780004C796D /* Api+AllUser.swift */; };
 		04CFA6D426B82F7F004C796D /* EXTAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6D326B82F7F004C796D /* EXTAlert.swift */; };
 		04CFA6F526B831BA004C796D /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6F426B831BA004C796D /* ProgressHud.swift */; };
 		04CFA6FA26B831EA004C796D /* SalmanLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6F926B831EA004C796D /* SalmanLocalize.swift */; };
 		04CFA6FF26B8327D004C796D /* ExtentionLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA6FE26B8327D004C796D /* ExtentionLocalize.swift */; };
+		04CFA71526B85A5E004C796D /* ModelShowProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA71426B85A5E004C796D /* ModelShowProfile.swift */; };
+		04CFA71A26B877EE004C796D /* API+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFA71926B877EE004C796D /* API+Profile.swift */; };
 		05C7C1AEB7F8203FE5FD64CD /* Pods_Flash_Card_Flash_CardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B984210F598BCE7007182 /* Pods_Flash_Card_Flash_CardUITests.framework */; };
 		9007A3FE2649344000DE91E4 /* notificationCardCVcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9007A3FC2649344000DE91E4 /* notificationCardCVcell.swift */; };
 		9007A3FF2649344000DE91E4 /* notificationCardCVcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007A3FD2649344000DE91E4 /* notificationCardCVcell.xib */; };
@@ -106,12 +110,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04BAD11826B95FD700811465 /* API+Favourit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Favourit.swift"; sourceTree = "<group>"; };
+		04BAD11D26B960DF00811465 /* ModelAllFavourit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAllFavourit.swift; sourceTree = "<group>"; };
 		04CFA6AA26B82447004C796D /* ModelAllUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAllUser.swift; sourceTree = "<group>"; };
 		04CFA6AF26B82780004C796D /* Api+AllUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Api+AllUser.swift"; sourceTree = "<group>"; };
 		04CFA6D326B82F7F004C796D /* EXTAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EXTAlert.swift; sourceTree = "<group>"; };
 		04CFA6F426B831BA004C796D /* ProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		04CFA6F926B831EA004C796D /* SalmanLocalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalmanLocalize.swift; sourceTree = "<group>"; };
 		04CFA6FE26B8327D004C796D /* ExtentionLocalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentionLocalize.swift; sourceTree = "<group>"; };
+		04CFA71426B85A5E004C796D /* ModelShowProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelShowProfile.swift; sourceTree = "<group>"; };
+		04CFA71926B877EE004C796D /* API+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Profile.swift"; sourceTree = "<group>"; };
 		16F66B5EFECFC56A23D5E75B /* Pods-Flash Card-Flash CardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Card-Flash CardUITests.release.xcconfig"; path = "Target Support Files/Pods-Flash Card-Flash CardUITests/Pods-Flash Card-Flash CardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		28759CD2A2C15450B4FF818E /* Pods-Flash Card.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Card.debug.xcconfig"; path = "Target Support Files/Pods-Flash Card/Pods-Flash Card.debug.xcconfig"; sourceTree = "<group>"; };
 		67598A304A9DF721B60467EA /* Pods_Flash_CardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_CardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -676,6 +684,8 @@
 				901762AC266566D50023CB61 /* PostModel.swift */,
 				90C34DD6269276B0001302AB /* LoginResponse.swift */,
 				04CFA6AA26B82447004C796D /* ModelAllUser.swift */,
+				04CFA71426B85A5E004C796D /* ModelShowProfile.swift */,
+				04BAD11D26B960DF00811465 /* ModelAllFavourit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -687,6 +697,8 @@
 				906B137F2691ED39005A7B33 /* API.swift */,
 				90C34DE7269285C8001302AB /* APIRouter.swift */,
 				04CFA6AF26B82780004C796D /* Api+AllUser.swift */,
+				04CFA71926B877EE004C796D /* API+Profile.swift */,
+				04BAD11826B95FD700811465 /* API+Favourit.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -987,6 +999,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BAD11926B95FD700811465 /* API+Favourit.swift in Sources */,
 				908E47FE261F17FE0054E45D /* HeaderTVCell.swift in Sources */,
 				9033B59B2643F74C00D2E9DD /* RoundedImage.swift in Sources */,
 				909922D4263EB606003C040D /* favouritesPlusCell.swift in Sources */,
@@ -995,6 +1008,7 @@
 				908E47F6261F17980054E45D /* ProfileVC.swift in Sources */,
 				900F60742652CCF0002DB03D /* splashScreenVC.swift in Sources */,
 				90E13258261B173D005D63AC /* AppDelegate.swift in Sources */,
+				04CFA71526B85A5E004C796D /* ModelShowProfile.swift in Sources */,
 				9007A3FE2649344000DE91E4 /* notificationCardCVcell.swift in Sources */,
 				90BCC08A2631B7CA00221AB2 /* CardView.swift in Sources */,
 				90D59BC7261E048100F98DAF /* UITableView+Extensions.swift in Sources */,
@@ -1015,6 +1029,7 @@
 				90715923265D350500995E45 /* Helper.swift in Sources */,
 				901762AD266566D50023CB61 /* PostModel.swift in Sources */,
 				908E4805261F18AA0054E45D /* ProfieTVCell.swift in Sources */,
+				04BAD11E26B960DF00811465 /* ModelAllFavourit.swift in Sources */,
 				90DB6CA62626EB2500BE9698 /* GroupCell.swift in Sources */,
 				905BA47A262C47BE00FBB34C /* innerGroupVC.swift in Sources */,
 				90A9B5E82623184F00434F43 /* ShareAppVC.swift in Sources */,
@@ -1043,6 +1058,7 @@
 				9090032E26285B65002F0D95 /* CreatNewCardVC.swift in Sources */,
 				90E1325A261B173D005D63AC /* SceneDelegate.swift in Sources */,
 				90DB6CB9262708B100BE9698 /* CreatGroupVC.swift in Sources */,
+				04CFA71A26B877EE004C796D /* API+Profile.swift in Sources */,
 				90A9B5D6262317FF00434F43 /* StatisticsVC.swift in Sources */,
 				90EC2B7D261C5D9F00E58E5A /* AllCardsVC.swift in Sources */,
 				907397EC261B63B900380516 /* Login.swift in Sources */,

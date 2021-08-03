@@ -7,74 +7,88 @@
 
 import UIKit
 
-class FavouritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , favourtDelegate {
+class FavouritesVC: UIViewController {
     
-    // delete cell in collection
-   
-         func DeleteFavourite(value: String) {
-        for data in self.FavListArr {
-            if data == value {
-                self.FavListArr = self.FavListArr.filter{$0 != data}
-                self.collectionViewOut.reloadData()
-            }
-        }
-    }
+
+    
+    @IBOutlet weak var collectionViewOut: UICollectionView!
+
     
     let favouriteCellObject = favouriteCell()
     var clicked = true
-    @IBAction func aditBtn(_ sender: Any) {
-        clicked =  !clicked
-        collectionViewOut.reloadData()
+    var post_id = 0 
+    var indicator:ProgressIndicator?
+    var ArrFav    = [ModelAllFavourit]()
+    var ArrSubFav = [ModelSubFavourit]()
+
     
-    }
+    
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionsetup()
-    }
-    
-    
-    // image picker in CollectionView
-    @IBOutlet weak var collectionViewOut: UICollectionView!
-    var FavListArr = ["Geo","comp"]
-
-    func collectionsetup() {
-        collectionViewOut.delegate = self
-        collectionViewOut.dataSource = self
-//        collectionViewOut.isUserInteractionEnabled = true
-        //        collectionViewOut.registerCell(cellClass: favouritesPlusCell.self)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FavListArr.count+1
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0{
-            AddNewFavouriteList()
-        } else{
-            
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell0 = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouritesPlusCell", for: indexPath) as! favouritesPlusCell
-        let cell = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouriteCell", for: indexPath) as! favouriteCell
-        cell.delBtnOut.isHidden = clicked
         
-        if indexPath.row == 0 {
-            return cell0
-        } else {
-            cell.delegate = self
-            cell.FavNameLA.text = FavListArr[indexPath.row-1]
-            cell.index = FavListArr[indexPath.row-1]
-            
-            return cell
-            
-        }
-        //        return cell
+        // indicator hud ----------------//
+        //    var indicator:ProgressIndicator?
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.lightGray, indicatorColor: #colorLiteral(red: 0.07058823529, green: 0.3568627451, blue: 0.6352941176, alpha: 1) , msg:  SalmanLocalize.textLocalize(key: "LPleaseWait") )
+        indicator?.center = self.view.center
+        self.view.addSubview(indicator!)
+        //  end indicator hud ----------------//
+        
+        
+        collectionViewOut.delegate   = self
+        collectionViewOut.dataSource = self
+        
     }
+    
+    
+    func getAllFavourit() {
+        
+        
+        self.indicator?.start()
+        if Reachable.isConnectedToNetwork() {
+            API.S_GetAllFavourit { (error : Error?, info : [ModelAllFavourit]?, message : String?) in
+        
+                if error == nil && info != nil {
+                    
+                    if info!.isEmpty {
+                        self.AlertShowMessage(controller: self, text: "No Content", status: 1)
+                        self.indicator?.stop()
+                    } else {
+                        for data in info! {
+                            ArrFav.append(contentsOf: data)
+                            ArrSubFav.append(data.subcategories)
+                        }
+                        self.indicator?.stop()
+                        collectionViewOut.reloadData()
+                    }
+                    
+                } else if error == nil && info == nil {
+                    self.AlertShowMessage(controller: self, text: message!, status: 1)
+                    self.indicator?.stop()
+                    
+                } else {
+                    self.AlertServerError(controller: self)
+                    self.indicator?.stop()
+                    
+                }
+                
+            }
+        } else {
+            self.AlertInternet(controller: self)
+            self.indicator?.stop()
+        }
+    }
+  
+    
+    @IBAction func aditBtn(_ sender: Any) {
+        clicked =  !clicked
+        collectionViewOut.reloadData()
+    
+    }
+  
     
     func AddNewFavouriteList(){
         let alert = UIAlertController(title: "Name Your List", message: "", preferredStyle: .alert)
@@ -112,5 +126,56 @@ extension FavouritesVC : UICollectionViewDelegateFlowLayout {
         let size:CGFloat = (collectionViewOut.frame.size.width - space) / 2.0
         return CGSize(width: size , height: 200)
     }
+    
+}
+
+
+extension FavouritesVC :  UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    
+    
+//    // delete cell in collection
+//
+//         func DeleteFavourite(value: String) {
+//        for data in self.FavListArr {
+//            if data == value {
+//                self.FavListArr = self.FavListArr.filter{$0 != data}
+//                self.collectionViewOut.reloadData()
+//            }
+//        }
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return ArrFav.count + 1
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            AddNewFavouriteList()
+        } else {
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell0 = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouritesPlusCell", for: indexPath) as! favouritesPlusCell
+        let cell = collectionViewOut.dequeueReusableCell(withReuseIdentifier: "favouriteCell", for: indexPath) as! favouriteCell
+        cell.delBtnOut.isHidden = clicked
+        
+        if indexPath.row == 0 {
+            return cell0
+        } else {
+//            cell.delegate = self
+            cell.FavNameLA.text = ArrFav[indexPath.row - 1 ].name
+
+            
+            
+            
+            return cell
+            
+        }
+    }
+    
+    
     
 }

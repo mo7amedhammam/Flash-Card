@@ -7,13 +7,28 @@
 
 import UIKit
 import Foundation
-import PKHUD
 
 class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var SettingTVOutlet: UITableView!
+    
+    
+    var indicator:ProgressIndicator?
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // indicator hud ----------------//
+        //    var indicator:ProgressIndicator?
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.lightGray, indicatorColor: #colorLiteral(red: 0.07058823529, green: 0.3568627451, blue: 0.6352941176, alpha: 1) , msg:  SalmanLocalize.textLocalize(key: "LPleaseWait") )
+        indicator?.center = self.view.center
+        self.view.addSubview(indicator!)
+        //  end indicator hud ----------------//
+        
+        
         tableviewSetup()
         self.navigationItem.title = "Settings"
     }
@@ -97,23 +112,35 @@ class SettingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func logutAction()  {
-//        if Reachable.isConnectedToNetwork(){
-//        API.userLogOut() { (success, result, message) in
-//            if success {
-//
-//                Helper.logout()
-//                self.navigationController?.popToRootViewController(animated: true)
-//
-//            }else {
-//                HUD.flash(.label(result?.message), delay:  2.0)
-//                print(message!)
-//            }
-//        }
-//
-//        }else{
-//            HUD.flash(.labeledError(title: "No Inernet Connection", subtitle: nil), delay: 2.0)
-//
-//        }
+
+        
+        self.indicator?.start()
+        if Reachable.isConnectedToNetwork() {
+            API.S_LogOut { (error : Error?, success : Bool?, message : String?) in
+              
+                if error == nil && success == true {
+                    
+                    Helper.logout()
+                    let vc = self.storyboard?.instantiateViewController(identifier: "Login") as! Login
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.indicator?.stop()
+                    
+                } else if error == nil && success == false {
+                    self.AlertShowMessage(controller: self, text: message!, status: 1)
+                    self.indicator?.stop()
+
+                } else {
+                    self.showAlert(message: "Server Error ")
+                    self.indicator?.stop()
+
+                }
+                
+            }
+        } else {
+            self.showAlert(message: "No Internet Connections")
+            self.indicator?.stop()
+        }
+        
     }
     
     
